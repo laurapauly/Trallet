@@ -14,7 +14,7 @@ function GlobalStyles() {
           font-size: 16px;
           margin: 0;
           background: ${theme.colors.action};
-          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-family: 'Roboto', sans-serif;
         }
       `}
     />
