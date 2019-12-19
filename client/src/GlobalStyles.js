@@ -13,7 +13,7 @@ function GlobalStyles() {
         body {
           font-size: 16px;
           margin: 0;
-          background: ${theme.colors.action};
+          background: ${theme.colors.basic};
           font-family: 'Roboto', sans-serif;
         }
       `}
