@@ -7,7 +7,7 @@ const SubmitButton = styled.button`
   height: 35px;
   background-color: ${light.colors.action};
   border-radius: 10px;
-  color: ${light.colors.white};
+  color: ${light.colors.basic};
   outline: none;
   border: none;
   font-size: 12px;

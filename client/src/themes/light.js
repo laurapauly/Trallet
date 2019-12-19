@@ -6,7 +6,7 @@ const light = {
     action: '#DCB480',
     fontsmall: '#00161A5F',
     inputfield: '#EFF8F9',
-    white: '#FFFFFF'
+    basic: '#FFFFFF'
   }
 };
 
