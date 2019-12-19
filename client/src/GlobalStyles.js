@@ -13,7 +13,7 @@ function GlobalStyles() {
         body {
           font-size: 16px;
           margin: 0;
-          background: ${theme.colors.basic};
+          background: ${theme.colors.inputfield};
           font-family: 'Roboto', sans-serif;
         }
       `}
