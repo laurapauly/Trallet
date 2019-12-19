@@ -5,7 +5,7 @@ const light = {
     iconinactive: '#707070',
     action: '#DCB480',
     fontsmall: '#00161A5F',
-    inputfield: '#EFF8F9',
+    backgroundprimary: '#EFF8F9',
     basic: '#FFFFFF'
   }
 };

@@ -18,7 +18,7 @@ const PlusButton = styled.button`
 const ButtonBackground = styled.div`
   width: 70px;
   height: 70px;
-  background-color: ${light.colors.inputfield};
+  background-color: ${light.colors.backgroundprimary};
   border-radius: 50%;
   outline: none;
   display: flex;

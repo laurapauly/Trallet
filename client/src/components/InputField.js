@@ -5,7 +5,7 @@ import light from '../themes/light.js';
 const Input = styled.input`
   width: 255px;
   height: 35px;
-  background-color: ${light.colors.inputfield};
+  background-color: ${light.colors.backgroundprimary};
   border-radius: 10px;
   color: ${light.colors.iconinactive};
   outline: none;
