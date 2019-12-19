@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light.js';
-// import { ThemeProvider } from 'emotion-theming';
 
 const SubmitButton = styled.button`
   width: 255px;

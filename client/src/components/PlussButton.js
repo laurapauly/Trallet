@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light.js';
-import Plus from './icons/plus.js';
+import PlusIcon from './icons/plus.js';
 
 const PlusButton = styled.button`
   width: 50px;
@@ -19,7 +19,7 @@ const PlusButton = styled.button`
 export default function Add() {
   return (
     <PlusButton>
-      <Plus></Plus>
+      <PlusIcon></PlusIcon>
     </PlusButton>
   );
 }
