@@ -7,8 +7,7 @@ const PlusButton = styled.button`
   width: 50px;
   height: 50px;
   background-color: ${light.colors.action};
-  border-radius: 50px;
-  color: ${light.colors.white};
+  border-radius: 50%;
   outline: none;
   border: none;
   display: flex;
@@ -16,10 +15,24 @@ const PlusButton = styled.button`
   align-items: center;
 `;
 
+const ButtonBackground = styled.div`
+  width: 70px;
+  height: 70px;
+  background-color: ${light.colors.backgroundprimary};
+  border-radius: 50%;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+`;
+
 export default function Add() {
   return (
-    <PlusButton>
-      <PlusIcon></PlusIcon>
-    </PlusButton>
+    <ButtonBackground>
+      <PlusButton>
+        <PlusIcon></PlusIcon>
+      </PlusButton>
+    </ButtonBackground>
   );
 }

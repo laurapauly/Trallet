@@ -1,5 +1,5 @@
 import React from 'react';
-import Plus from '../components/PlussButton';
+import Plus from '../components/PlusButton';
 
 export default {
   title: 'PlusButton'
