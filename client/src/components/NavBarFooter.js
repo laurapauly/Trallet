@@ -15,7 +15,7 @@ const Footer = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   border-radius: 20px 20px 0px 0px;
   align-items: center;
