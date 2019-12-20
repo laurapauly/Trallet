@@ -16,6 +16,7 @@ const CardElement = styled.div`
   justify-content: space-around;
   align-items: center;
   padding: 5px;
+  background-color: ${light.colors.basic};
 `;
 
 const Picture = styled.div`
@@ -58,6 +59,15 @@ const Details = styled.p`
   font-size: 8pt;
 `;
 
+const IconButton = styled.button`
+  width: 25px;
+  height: 25px;
+  outline: none;
+  border: none;
+  background-color: ${light.colors.basic};
+  margin-bottom: 50px;
+`;
+
 export default function JourneyCard() {
   return (
     <Container>
@@ -70,7 +80,9 @@ export default function JourneyCard() {
             <Details>1980€verfügbar</Details>
           </Wrapper2>
         </Wrapper>
-        <SeeMoreIcon />
+        <IconButton>
+          <SeeMoreIcon />
+        </IconButton>
       </CardElement>
     </Container>
   );
