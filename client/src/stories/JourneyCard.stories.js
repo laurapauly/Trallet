@@ -5,6 +5,6 @@ export default {
   title: 'JourneyCard'
 };
 
-export function Card() {
+export function Journey() {
   return <JourneyCard></JourneyCard>;
 }
