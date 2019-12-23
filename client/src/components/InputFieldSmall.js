@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import light from '../themes/light.js';
 
 const InputSmall = styled.input`
-  width: 120px;
+  width: 135px;
   height: 35px;
   background-color: ${light.colors.backgroundprimary};
   border-radius: 10px;
@@ -13,8 +13,10 @@ const InputSmall = styled.input`
   font-size: 10px;
   text-align: left;
   padding: 15px;
+  margin: 5px;
+  margin-bottom: 20px;
 `;
 
 export default function InputFieldSmall() {
-  return <InputSmall></InputSmall>;
+  return <InputSmall type="date"></InputSmall>;
 }

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import light from '../themes/light.js';
 
 const SubmitButton = styled.button`
-  width: 255px;
+  width: 281px;
   height: 35px;
   background-color: ${light.colors.action};
   border-radius: 10px;
@@ -11,6 +11,7 @@ const SubmitButton = styled.button`
   outline: none;
   border: none;
   font-size: 12px;
+  margin: 10px;
 `;
 
 export default function Submit() {
