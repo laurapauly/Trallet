@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light.js';
 
-const InputSmall = styled.input`
+const InputSmallText = styled.input`
   width: 135px;
   height: 35px;
   background-color: ${light.colors.backgroundprimary};
@@ -17,6 +17,6 @@ const InputSmall = styled.input`
   margin-bottom: 20px;
 `;
 
-export default function InputFieldSmall() {
-  return <InputSmall type="date"></InputSmall>;
+export default function InputFieldSmallText() {
+  return <InputSmallText type="text" placeholder="Euro"></InputSmallText>;
 }
