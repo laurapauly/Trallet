@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light.js';
 import InputFieldSmallDate from './InputFieldSmallDate';
+import InputFieldSmallText from './InputFieldSmallText';
 import CloseIcon from './icons/close.js';
 import SelectField from './SelectField.js';
 import SubmitButton from './SubmitButton';
@@ -66,7 +67,7 @@ export default function FilterForm() {
           <Headings>Datum</Headings>
           <Container2>
             <InputFieldSmallDate></InputFieldSmallDate>
-            <InputFieldSmall></InputFieldSmall>
+            <InputFieldSmallText></InputFieldSmallText>
           </Container2>
           <Headings>Kategorie</Headings>
           <SelectField></SelectField>
