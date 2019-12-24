@@ -5,7 +5,7 @@ import light from './themes/light.js';
 import { ThemeProvider } from 'emotion-theming';
 import JourneyCard from './components/JourneyCard.js';
 import SpendingCard from './components/SpendingCard.js';
-import FilterForm from './components/FilterForm.js';
+import SpendingForm from './components/SpendingForm.js';
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
         <GlobalStyles />
         <JourneyCard />
         <SpendingCard />
-        <FilterForm />
+        <SpendingForm />
         <NavBarFooter></NavBarFooter>
       </ThemeProvider>
     </>
