@@ -1,9 +1,8 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light.js';
 
-const InputSmallDate = styled.input`
-  width: 135px;
+const InputField = styled.input`
+  width: 281px;
   height: 35px;
   background-color: ${light.colors.backgroundprimary};
   border-radius: 10px;
@@ -12,11 +11,9 @@ const InputSmallDate = styled.input`
   border: none;
   font-size: 10px;
   text-align: left;
-  padding: 15px;
+  padding: 10px;
   margin: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
-export default function InputFieldSmallDate() {
-  return <InputSmallDate type="date"></InputSmallDate>;
-}
+export default InputField;

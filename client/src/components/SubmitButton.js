@@ -11,7 +11,7 @@ const SubmitButton = styled.button`
   outline: none;
   border: none;
   font-size: 12px;
-  margin: 20px;
+  margin: 30px;
 `;
 
 export default function Submit() {
