@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import light from '../themes/light.js';
 
 const SpendingButton = styled.button`
-  height: 40px;
-  width: 60px;
+  height: 35px;
+
   background-color: ${light.colors.backgroundprimary};
   border-radius: 10px;
   outline: none;
