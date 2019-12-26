@@ -8,16 +8,15 @@ import SubmitButton from './SubmitButton';
 import InputField from './InputField.js';
 
 const Container = styled.div`
-  height: 550px;
   padding: 20px;
   margin-bottom: 80px;
 `;
 
 const FormElement = styled.form`
   width: 100%;
-  box-shadow: 0pt 3pt 20pt #00000029;
+  box-shadow: 0px 3px 20px #00000029;
   background-color: ${light.colors.basic};
-  height: 380px;
+  /* height: 380px; */
   padding: 20px 30px 20px 30px;
   border-radius: 10px;
   display: flex;
@@ -81,7 +80,6 @@ export default function NewJourneyForm() {
             <InputFieldSmall type="date"></InputFieldSmall>
             <InputFieldSmall type="date"></InputFieldSmall>
           </Container2>
-
           <SubmitButton style={ButtonStyle}>Speichern</SubmitButton>
         </Container3>
       </FormElement>
