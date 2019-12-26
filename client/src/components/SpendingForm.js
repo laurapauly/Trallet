@@ -16,13 +16,12 @@ import ActionIcon from './icons/action.js';
 import SmileyIcon from './icons/smiley.js';
 
 const Container = styled.div`
-  height: 600px;
   padding: 10px;
 `;
 
 const FormElement = styled.form`
   width: 100%;
-  box-shadow: 0pt 3pt 20pt #00000029;
+  box-shadow: 0px 3px 20px #00000029;
   background-color: ${light.colors.basic};
   height: 100%;
   padding: 20px 30px 20px 30px;
