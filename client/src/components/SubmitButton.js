@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light.js';
 
 const SubmitButton = styled.button`
-  width: 255px;
+  width: 281px;
   height: 35px;
   background-color: ${light.colors.action};
   border-radius: 10px;
@@ -13,6 +13,5 @@ const SubmitButton = styled.button`
   font-size: 12px;
 `;
 
-export default function Submit() {
-  return <SubmitButton>Speichern</SubmitButton>;
-}
+export default SubmitButton;
+// return <SubmitButton>Speichern</SubmitButton>;

@@ -6,5 +6,5 @@ export default {
 };
 
 export function InputSmall() {
-  return <InputFieldSmall type="text"></InputFieldSmall>;
+  return <InputFieldSmall></InputFieldSmall>;
 }
