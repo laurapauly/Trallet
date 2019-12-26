@@ -8,16 +8,14 @@ import SelectField from './SelectField.js';
 import SubmitButton from './SubmitButton';
 
 const Container = styled.div`
-  height: 350px;
   padding: 20px;
   margin-bottom: 80px;
 `;
 
 const FormElement = styled.form`
   width: 100%;
-  box-shadow: 0pt 3pt 20pt #00000029;
+  box-shadow: 0px 3px 20px #00000029;
   background-color: ${light.colors.basic};
-  height: 300px;
   padding: 20px 30px 20px 30px;
   border-radius: 10px;
   display: flex;
@@ -26,10 +24,9 @@ const FormElement = styled.form`
 `;
 
 const Title = styled.p`
-  font-size: 12pt;
-  font-style: bold;
-  margin-right: auto;
+  font-size: 16px;
   font-weight: bold;
+  margin-right: auto;
 `;
 
 const Container1 = styled.div`
@@ -52,7 +49,7 @@ const Container3 = styled.div`
 const Headings = styled.p`
   all: unset;
   margin-right: auto;
-  font-size: 10pt;
+  font-size: 14px;
 `;
 
 export default function FilterForm() {
@@ -71,7 +68,7 @@ export default function FilterForm() {
           </Container2>
           <Headings>Kategorie</Headings>
           <SelectField></SelectField>
-          <SubmitButton />
+          <SubmitButton>Speichern</SubmitButton>
         </Container3>
       </FormElement>
     </Container>
