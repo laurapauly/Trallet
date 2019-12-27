@@ -13,6 +13,8 @@ function GlobalStyles() {
           box-sizing: border-box;
         }
         body {
+          width: 100vw;
+          height: 100vh;
           font-size: 16px;
           margin: 0;
           background: ${theme.colors.backgroundprimary};
