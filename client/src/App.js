@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Journeys from './pages/Journeys.js';
 import SpendingList from './pages/SpendingList.js';
 import Statistics from './pages/Statistics.js';
+import Map from './pages/Map.js';
 import styled from '@emotion/styled';
 
 const Container = styled.div`
@@ -32,6 +33,9 @@ export default function App() {
               </Route>
               <Route exact path="/statistics">
                 <Statistics />
+              </Route>
+              <Route exact path="/map">
+                <Map />
               </Route>
             </Switch>
             <NavBarFooter></NavBarFooter>
