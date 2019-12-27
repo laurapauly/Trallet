@@ -1,10 +1,12 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 
 function GlobalStyles() {
+  const theme = useTheme();
   return (
     <Global
-      styles={theme => css`
+      styles={css`
         *,
         *:before,
         *:after {
