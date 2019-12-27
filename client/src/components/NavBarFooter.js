@@ -5,8 +5,8 @@ import HomeIcon from './icons/home.js';
 import ChartIcon from './icons/chart.js';
 import MapIcon from './icons/map.js';
 import PlusButton from './PlusButton';
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+
+import { useLocation, Link } from 'react-router-dom';
 
 const Footer = styled.footer`
   height: 60px;
@@ -50,26 +50,26 @@ export default function NavBarFooter() {
   return (
     <Footer>
       <Wrapper>
-        <Highlight active={location.pathname === '/'}></Highlight>
+        <Highlight active={location.pathname === '/'} />
         <NavButton to="/">
           <HomeIcon to="/" active={location.pathname === '/'} />
         </NavButton>
       </Wrapper>
       <Wrapper>
-        <Highlight active={location.pathname === '/journeys'}></Highlight>
+        <Highlight active={location.pathname === '/journeys'} />
         <NavButton to="/journeys">
           <UmbrellaIcon to="/journeys" active={location.pathname === '/journeys'} />
         </NavButton>
       </Wrapper>
       <PlusButton />
       <Wrapper>
-        <Highlight active={location.pathname === '/statistics'}></Highlight>
+        <Highlight active={location.pathname === '/statistics'} />
         <NavButton to="/statistics">
           <ChartIcon to="/statistics" active={location.pathname === '/statistics'} />
         </NavButton>
       </Wrapper>
       <Wrapper>
-        <Highlight active={location.pathname === '/map'}></Highlight>
+        <Highlight active={location.pathname === '/map'} />
         <NavButton to="/map">
           <MapIcon to="/map" active={location.pathname === '/map'} />
         </NavButton>
