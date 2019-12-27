@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light.js';
 import UmbrellaIcon from './icons/umbrella.js';
 import HomeIcon from './icons/home.js';
 import ChartIcon from './icons/chart.js';
 import MapIcon from './icons/map.js';
 import PlusButton from './PlusButton';
 
+import { useLocation, Link } from 'react-router-dom';
+
 const Footer = styled.footer`
   height: 60px;
   width: 100%;
-  background-color: ${light.colors.basic};
-
+  background-color: ${props => props.theme.colors.basic};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,56 +29,51 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const NavButton = styled.button`
-  width: 40px;
-  height: 40px;
-  background-color: ${light.colors.basic};
-  outline: none;
+const NavButton = styled(Link)`
+  width: 25px;
+  height: 25px;
+  background-color: ${props => props.theme.colors.basic};
   border: none;
 `;
 
 const Highlight = styled.div`
   width: 30px;
   height: 2px;
-  background-color: ${light.colors.fontprimary};
-  position: absolute;
-  top: 0;
-`;
-
-const Highlightinactive = styled.div`
-  width: 30px;
-  height: 2px;
-  background-color: ${light.colors.basic};
+  background-color: ${props =>
+    props.active ? props.theme.colors.fontprimary : props.theme.colors.basic};
   position: absolute;
   top: 0;
 `;
 
 export default function NavBarFooter() {
+  const location = useLocation();
   return (
     <Footer>
       <Wrapper>
-        <Highlightinactive></Highlightinactive>
-        <NavButton>
-          <HomeIcon />
+        <Highlight active={location.pathname === '/'} />
+        <NavButton to="/">
+          <HomeIcon to="/" active={location.pathname === '/'} />
         </NavButton>
       </Wrapper>
       <Wrapper>
-        <Highlight></Highlight>
-        <NavButton>
-          <UmbrellaIcon />
+        <Highlight active={location.pathname === '/journeys'} />
+        <NavButton to="/journeys">
+          <UmbrellaIcon to="/journeys" active={location.pathname === '/journeys'} />
         </NavButton>
       </Wrapper>
       <PlusButton />
       <Wrapper>
-        <Highlightinactive></Highlightinactive>
-        <NavButton>
-          <ChartIcon />
+        <Highlight active={location.pathname === '/statistics'} />
+        <NavButton to="/statistics">
+          <ChartIcon to="/statistics" active={location.pathname === '/statistics'} />
         </NavButton>
       </Wrapper>
-      <Highlightinactive></Highlightinactive>
-      <NavButton>
-        <MapIcon />
-      </NavButton>
+      <Wrapper>
+        <Highlight active={location.pathname === '/map'} />
+        <NavButton to="/map">
+          <MapIcon to="/map" active={location.pathname === '/map'} />
+        </NavButton>
+      </Wrapper>
     </Footer>
   );
 }

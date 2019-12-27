@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../../themes/light.js';
 
 const Svg = styled.svg`
-  fill: ${light.colors.fontprimary};
+  fill: ${props =>
+    props.active ? props.theme.colors.fontprimary : props.theme.colors.iconinactive};
   width: 25px;
   height: 25px;
 `;
