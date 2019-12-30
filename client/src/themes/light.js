@@ -7,7 +7,8 @@ const light = {
     fontsmall: '#00161A5F',
     backgroundprimary: '#EFF8F9',
     basic: '#FFFFFF',
-    background: '#91D5E2'
+    background: '#91D5E2',
+    fontcolor: '#0A363E'
   }
 };
 
