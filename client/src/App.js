@@ -27,7 +27,6 @@ export default function App() {
             <Switch>
               <Route exact path="/">
                 <SpendingList />
-                <NavBarFooter></NavBarFooter>
               </Route>
               <Route exact path="/journeys">
                 <Journeys />
