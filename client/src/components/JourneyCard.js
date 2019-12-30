@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import SeeMoreIcon from './icons/seemore.js';
 import light from '../themes/light.js';
+import PhotoIcon from './icons/addphoto.js';
 
 // const Container = styled.div`
 //   height: 200px;
@@ -18,6 +19,8 @@ const CardElement = styled.div`
   padding: 5px;
   background-color: ${light.colors.basic};
   margin: 40px 20px 40px 20px;
+  position: relative;
+  z-index: 10;
 `;
 
 const Picture = styled.div`
@@ -25,6 +28,7 @@ const Picture = styled.div`
   width: 100px;
   background-color: ${light.colors.fontsmall};
   border-radius: 5px;
+  text-align: center;
 `;
 
 const Wrapper = styled.div`
@@ -72,7 +76,9 @@ const IconButton = styled.button`
 export default function JourneyCard() {
   return (
     <CardElement>
-      <Picture></Picture>
+      <Picture>
+        <PhotoIcon />
+      </Picture>
       <Wrapper>
         <Destination>Südostasien</Destination>
         <Wrapper2>

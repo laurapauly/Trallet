@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import WaveIcon from '../components/assets/wave.js';
 import JourneyCard from '../components/JourneyCard.js';
 import PlusIcon from '../components/icons/plus.js';
+import NewJourneyForm from '../components/NewJourneyForm.js';
+import { useState } from 'react';
 
 const JourneysBackground = styled.header`
   background-color: ${props => props.theme.colors.background};
@@ -10,10 +12,10 @@ const JourneysBackground = styled.header`
   width: 100%;
   position: fixed;
   top: 0;
-  /* z-index: 9999; */
+  z-index: 20;
 `;
 
-const IconStyle = {
+const StyleWaveIcon = {
   position: 'absolute',
   bottom: '0'
 };
@@ -60,10 +62,8 @@ const AddButton = styled.button`
   border: none;
 `;
 
-function handleClick() {
-  console.log('test');
-}
 export default function Journeys() {
+  const [showForm, setShowForm] = useState(false);
   return (
     <>
       <JourneysBackground>
@@ -72,12 +72,14 @@ export default function Journeys() {
             <Heading>Deine Reisen</Heading>
             <SubHeading>im Überblick</SubHeading>
           </HeadingContainer>
-          <AddButton onClick={handleClick}>
+          <AddButton onClick={() => setShowForm(!showForm)}>
             <PlusIcon style={StylePlusIcon} />
           </AddButton>
+          {showForm && <NewJourneyForm />}
         </HeaderContainer>
-        <WaveIcon style={IconStyle} />
+        <WaveIcon style={StyleWaveIcon} />
       </JourneysBackground>
+
       <CardContainer>
         <JourneyCard></JourneyCard>
         <JourneyCard></JourneyCard>

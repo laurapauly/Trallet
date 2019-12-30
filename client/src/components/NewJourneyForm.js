@@ -4,28 +4,25 @@ import light from '../themes/light.js';
 import InputFieldSmall from './InputFieldSmall';
 import CloseIcon from './icons/close.js';
 import SubmitButton from './SubmitButton';
-
 import InputField from './InputField.js';
 
-const Container = styled.div`
-  /* padding: 20px; */
-  margin: 50px;
-`;
+const Container = styled.div``;
 
 const FormElement = styled.form`
   box-shadow: 0px 3px 20px #00000029;
   background-color: ${light.colors.basic};
-
   padding: 20px 30px 20px 30px;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: fixed;
-  top: 273px;
+  position: absolute;
+  top: 150px;
   right: 1px;
   left: 1px;
-  z-index: 9999;
+  z-index: 99;
+  margin-left: 5px;
+  margin-right: 5px;
 `;
 
 const Title = styled.p`
@@ -58,11 +55,18 @@ const Headings = styled.p`
   margin-right: auto;
   font-size: 10pt;
   margin-top: 5px;
+  margin-left: 7px;
 `;
 
 const ButtonStyle = {
   margin: '10px 0px 10px 0px'
 };
+
+const CloseButton = styled.button`
+  border: none;
+  outline: none;
+  background: ${light.colors.basic};
+`;
 
 export default function NewJourneyForm() {
   return (
@@ -70,7 +74,9 @@ export default function NewJourneyForm() {
       <FormElement>
         <Container1>
           <Title>Neue Reise</Title>
-          <CloseIcon></CloseIcon>
+          <CloseButton>
+            <CloseIcon />
+          </CloseButton>
         </Container1>
         <Container3>
           <Headings>Titel</Headings>
