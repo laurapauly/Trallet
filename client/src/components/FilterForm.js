@@ -8,12 +8,19 @@ import SelectField from './SelectField.js';
 import SubmitButton from './SubmitButton';
 
 const Container = styled.div`
-  padding: 20px;
-  margin-bottom: 80px;
+  padding: 20px 5px 20px 5px;
+  margin-bottom: 200px;
+  position: absolute;
+  top: 10px;
+  right: 1px;
+  left: 1px;
+  z-index: 999;
+  margin: 20px;
 `;
 
 const FormElement = styled.form`
   width: 100%;
+  height: 300px;
   box-shadow: 0px 3px 20px #00000029;
   background-color: ${light.colors.basic};
   padding: 20px 30px 20px 30px;
@@ -50,6 +57,8 @@ const Headings = styled.p`
   all: unset;
   margin-right: auto;
   font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 3px;
 `;
 
 export default function FilterForm() {
