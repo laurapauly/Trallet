@@ -8,20 +8,24 @@ import SubmitButton from './SubmitButton';
 import InputField from './InputField.js';
 
 const Container = styled.div`
-  padding: 20px;
-  margin-bottom: 80px;
+  /* padding: 20px; */
+  margin: 50px;
 `;
 
 const FormElement = styled.form`
-  width: 100%;
   box-shadow: 0px 3px 20px #00000029;
   background-color: ${light.colors.basic};
 
   padding: 20px 30px 20px 30px;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: fixed;
+  top: 273px;
+  right: 1px;
+  left: 1px;
+  z-index: 9999;
 `;
 
 const Title = styled.p`

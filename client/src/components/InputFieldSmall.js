@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import light from '../themes/light.js';
 
 const InputFieldSmall = styled.input`
-  width: 135px;
+  width: 150px;
   height: 35px;
   background-color: ${light.colors.backgroundprimary};
   border-radius: 10px;

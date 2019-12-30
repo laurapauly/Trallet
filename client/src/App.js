@@ -27,18 +27,20 @@ export default function App() {
             <Switch>
               <Route exact path="/">
                 <SpendingList />
+                <NavBarFooter></NavBarFooter>
               </Route>
               <Route exact path="/journeys">
                 <Journeys />
               </Route>
               <Route exact path="/statistics">
                 <Statistics />
+                <NavBarFooter></NavBarFooter>
               </Route>
               <Route exact path="/map">
                 <Map />
+                <NavBarFooter></NavBarFooter>
               </Route>
             </Switch>
-            <NavBarFooter></NavBarFooter>
           </Container>
         </Router>
       </ThemeProvider>
