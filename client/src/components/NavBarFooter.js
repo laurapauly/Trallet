@@ -4,7 +4,7 @@ import UmbrellaIcon from './icons/umbrella.js';
 import HomeIcon from './icons/home.js';
 import ChartIcon from './icons/chart.js';
 import MapIcon from './icons/map.js';
-import PlusButton from './PlusButton';
+import Add from './PlusButton';
 
 import { useLocation, Link } from 'react-router-dom';
 
@@ -61,7 +61,7 @@ export default function NavBarFooter() {
           <UmbrellaIcon to="/journeys" active={location.pathname === '/journeys'} />
         </NavButton>
       </Wrapper>
-      <PlusButton />
+      <Add />
       <Wrapper>
         <Highlight active={location.pathname === '/statistics'} />
         <NavButton to="/statistics">

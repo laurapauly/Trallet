@@ -33,12 +33,13 @@ export default function App() {
               </Route>
               <Route exact path="/statistics">
                 <Statistics />
+                <NavBarFooter></NavBarFooter>
               </Route>
               <Route exact path="/map">
                 <Map />
+                <NavBarFooter></NavBarFooter>
               </Route>
             </Switch>
-            <NavBarFooter></NavBarFooter>
           </Container>
         </Router>
       </ThemeProvider>

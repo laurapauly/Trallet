@@ -2,6 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light.js';
 import PlusIcon from './icons/plus.js';
+import { useState } from 'react';
+import NewJourneyForm from './NewJourneyForm';
 
 const PlusButton = styled.button`
   width: 50px;
@@ -28,9 +30,11 @@ const ButtonBackground = styled.div`
 `;
 
 export default function Add() {
+  const [showForm, setShowForm] = useState(false);
   return (
     <ButtonBackground>
-      <PlusButton>
+      <PlusButton onClick={() => setShowForm(!showForm)}>
+        {showForm && <NewJourneyForm />}
         <PlusIcon></PlusIcon>
       </PlusButton>
     </ButtonBackground>
