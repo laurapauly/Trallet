@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import light from '../themes/light.js';
 
 const Select = styled.select`
-  width: 281px;
+  width: 100%;
   height: 35px;
   background-color: ${light.colors.backgroundprimary};
   border-radius: 10px;
@@ -19,7 +19,7 @@ const Select = styled.select`
 
 export default function SelectField() {
   return (
-    <Select class="ui dropdown">
+    <Select className="ui dropdown">
       <option>Essen</option>
       <option>Transport</option>
       <option>Flüge</option>

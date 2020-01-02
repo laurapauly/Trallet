@@ -3,11 +3,6 @@ import styled from '@emotion/styled';
 import light from '../themes/light.js';
 import FoodIcon from './icons/food';
 
-const Container = styled.div`
-  height: 200px;
-  padding: 20px;
-`;
-
 const SpendingCardElement = styled.div`
   height: 60px;
   box-shadow: 0pt 3pt 20pt #00000029;
@@ -16,6 +11,7 @@ const SpendingCardElement = styled.div`
   justify-content: space-around;
   align-items: center;
   background-color: ${light.colors.basic};
+  margin: 10px 20px 10px 20px;
 `;
 
 const Wrapper = styled.div`
@@ -50,19 +46,17 @@ const Wrapper2 = styled.div`
 
 export default function SpendingCard() {
   return (
-    <Container>
-      <SpendingCardElement>
-        <Wrapper2>
-          <div>
-            <FoodIcon />
-          </div>
-          <Wrapper>
-            <Title>Oma Jamu</Title>
-            <Location>Canggu, Bali</Location>
-          </Wrapper>
-        </Wrapper2>
-        <Spending>-50.000 IDR</Spending>
-      </SpendingCardElement>
-    </Container>
+    <SpendingCardElement>
+      <Wrapper2>
+        <div>
+          <FoodIcon />
+        </div>
+        <Wrapper>
+          <Title>Oma Jamu</Title>
+          <Location>Canggu, Bali</Location>
+        </Wrapper>
+      </Wrapper2>
+      <Spending>-50.000 IDR</Spending>
+    </SpendingCardElement>
   );
 }

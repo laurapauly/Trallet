@@ -4,16 +4,15 @@ import light from '../../themes/light.js';
 
 const Svg = styled.svg`
   fill: ${light.colors.action};
-  width: 30px;
-  height: 30px;
-  margin-bottom: 45px;
+  width: 25px;
+  height: 25px;
 `;
 
-export default function DrinkIcon(props) {
+export default function FilterIcon(props) {
   return (
     <Svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" {...props}>
-      <path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z" />
-      <path fill="none" d="M0 0h24v24H0z" />
+      <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
+      <path d="M0 0h24v24H0z" fill="none" />
     </Svg>
   );
 }
