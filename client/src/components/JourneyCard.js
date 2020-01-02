@@ -3,11 +3,7 @@ import styled from '@emotion/styled';
 import SeeMoreIcon from './icons/seemore.js';
 import light from '../themes/light.js';
 import PhotoIcon from './icons/addphoto.js';
-
-// const Container = styled.div`
-//   height: 200px;
-//   padding: 20px;
-//
+import { Link } from 'react-router-dom';
 
 const CardElement = styled.div`
   height: 100px;
@@ -64,7 +60,7 @@ const Details = styled.p`
   font-size: 8pt;
 `;
 
-const IconButton = styled.button`
+const IconButton = styled(Link)`
   width: 25px;
   height: 25px;
   outline: none;
@@ -86,7 +82,7 @@ export default function JourneyCard() {
           <Details>1980€verfügbar</Details>
         </Wrapper2>
       </Wrapper>
-      <IconButton>
+      <IconButton to="/">
         <SeeMoreIcon />
       </IconButton>
     </CardElement>

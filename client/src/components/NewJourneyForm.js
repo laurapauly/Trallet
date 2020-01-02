@@ -6,28 +6,34 @@ import CloseIcon from './icons/close.js';
 import SubmitButton from './SubmitButton';
 import InputField from './InputField.js';
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding: 20px 5px 20px 5px;
+  margin-bottom: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+`;
 
 const FormElement = styled.form`
+  width: 100%;
+  height: 380px;
   box-shadow: 0px 3px 20px #00000029;
   background-color: ${light.colors.basic};
   padding: 20px 30px 20px 30px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: absolute;
-  top: 150px;
-  right: 1px;
-  left: 1px;
-  z-index: 99;
-  margin-left: 5px;
-  margin-right: 5px;
 `;
 
 const Title = styled.p`
-  font-size: 12pt;
-  font-style: bold;
+  font-size: 14pt;
   margin-right: auto;
   font-weight: bold;
 `;
@@ -35,12 +41,12 @@ const Title = styled.p`
 const Container1 = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
 `;
 
 const Container2 = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 const Container3 = styled.div`
@@ -58,25 +64,24 @@ const Headings = styled.p`
   margin-left: 7px;
 `;
 
-const ButtonStyle = {
-  margin: '10px 0px 10px 0px'
+const styleFirstInput = {
+  marginLeft: 0
 };
 
-const CloseButton = styled.button`
-  border: none;
-  outline: none;
-  background: ${light.colors.basic};
-`;
+const styleSecondInput = {
+  marginRight: 0
+};
 
-export default function NewJourneyForm() {
+export default function NewJourneyForm({ handleClick, handleClose }) {
+  function stop(event) {
+    event.stopPropagation();
+  }
   return (
-    <Container>
-      <FormElement>
+    <Container onClick={handleClose}>
+      <FormElement onClick={stop}>
         <Container1>
           <Title>Neue Reise</Title>
-          <CloseButton>
-            <CloseIcon />
-          </CloseButton>
+          <CloseIcon onClick={handleClose} />
         </Container1>
         <Container3>
           <Headings>Titel</Headings>
@@ -87,10 +92,10 @@ export default function NewJourneyForm() {
         <Container3>
           <Headings>Datum</Headings>
           <Container2>
-            <InputFieldSmall type="date"></InputFieldSmall>
-            <InputFieldSmall type="date"></InputFieldSmall>
+            <InputFieldSmall type="date" style={styleFirstInput}></InputFieldSmall>
+            <InputFieldSmall type="date" style={styleSecondInput}></InputFieldSmall>
           </Container2>
-          <SubmitButton style={ButtonStyle}>Speichern</SubmitButton>
+          <SubmitButton onClick={handleClose}>Speichern</SubmitButton>
         </Container3>
       </FormElement>
     </Container>

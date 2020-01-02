@@ -12,7 +12,6 @@ const JourneysBackground = styled.header`
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 20;
 `;
 
 const StyleWaveIcon = {
@@ -40,7 +39,8 @@ const CardContainer = styled.div`
 `;
 
 const StylePlusIcon = {
-  fill: '#DCB480'
+  fill: '#DCB480',
+  margin: '30px 15px 0px 90px'
 };
 
 const HeaderContainer = styled.div`
@@ -52,18 +52,21 @@ const HeadingContainer = styled.div`
   flex-direction: column;
 `;
 
-const AddButton = styled.button`
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  margin: 30px 15px 0px 90px;
-
-  outline: none;
-  border: none;
-`;
-
-export default function Journeys() {
+export default function JourneyList() {
   const [showForm, setShowForm] = useState(false);
+  function handleForm(event) {
+    event.preventDefault();
+    console.log(event);
+  }
+  function closeForm(event) {
+    setShowForm(false);
+  }
+  const JourneyFormFn = ({ showForm }) => {
+    if (!showForm) {
+      return null;
+    }
+    return <NewJourneyForm handleClick={handleForm} handleClose={closeForm} />;
+  };
   return (
     <>
       <JourneysBackground>
@@ -72,20 +75,17 @@ export default function Journeys() {
             <Heading>Deine Reisen</Heading>
             <SubHeading>im Überblick</SubHeading>
           </HeadingContainer>
-          <AddButton onClick={() => setShowForm(!showForm)}>
-            <PlusIcon style={StylePlusIcon} />
-          </AddButton>
-          {showForm && <NewJourneyForm />}
+          <PlusIcon style={StylePlusIcon} onClick={() => setShowForm(true)} />
         </HeaderContainer>
         <WaveIcon style={StyleWaveIcon} />
       </JourneysBackground>
-
       <CardContainer>
         <JourneyCard></JourneyCard>
         <JourneyCard></JourneyCard>
         <JourneyCard></JourneyCard>
         <JourneyCard></JourneyCard>
       </CardContainer>
+      <JourneyFormFn showForm={showForm} />
     </>
   );
 }
