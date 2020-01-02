@@ -19,7 +19,7 @@ const Select = styled.select`
 
 export default function SelectField() {
   return (
-    <Select class="ui dropdown">
+    <Select className="ui dropdown">
       <option>Essen</option>
       <option>Transport</option>
       <option>Flüge</option>
