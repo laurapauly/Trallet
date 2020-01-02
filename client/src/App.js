@@ -4,7 +4,7 @@ import GlobalStyles from './GlobalStyles';
 import light from './themes/light.js';
 import { ThemeProvider } from 'emotion-theming';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import JourneyList from './pages/JourneyList.js/index.js.js';
+import JourneyList from './pages/JourneyList.js';
 import SpendingList from './pages/SpendingList.js';
 import Statistics from './pages/Statistics.js';
 import Map from './pages/Map.js';
