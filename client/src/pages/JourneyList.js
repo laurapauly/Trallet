@@ -62,7 +62,7 @@ const AddButton = styled.button`
   border: none;
 `;
 
-export default function Journeys() {
+export default function JourneyList() {
   const [showForm, setShowForm] = useState(false);
   return (
     <>
