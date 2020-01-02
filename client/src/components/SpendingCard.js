@@ -11,7 +11,7 @@ const SpendingCardElement = styled.div`
   justify-content: space-around;
   align-items: center;
   background-color: ${light.colors.basic};
-  margin: 30px 20px 10px 20px;
+  margin: 10px 20px 10px 20px;
 `;
 
 const Wrapper = styled.div`
