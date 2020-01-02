@@ -10,12 +10,15 @@ import SubmitButton from './SubmitButton';
 const Container = styled.div`
   padding: 20px 5px 20px 5px;
   margin-bottom: 200px;
-  position: absolute;
-  top: 10px;
-  right: 1px;
-  left: 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 999;
-  margin: 20px;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
 `;
 
 const FormElement = styled.form`
@@ -44,6 +47,7 @@ const Container1 = styled.div`
 const Container2 = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 const Container3 = styled.div`
@@ -61,23 +65,34 @@ const Headings = styled.p`
   margin-bottom: 3px;
 `;
 
-export default function FilterForm() {
+const styleFirstInput = {
+  marginLeft: 0
+};
+
+const styleSecondInput = {
+  marginRight: 0
+};
+
+export default function FilterForm({ handleClick, handleClose }) {
+  function stop(event) {
+    event.stopPropagation();
+  }
   return (
-    <Container>
-      <FormElement>
+    <Container onClick={handleClose}>
+      <FormElement onClick={stop}>
         <Container1>
           <Title>Filter einstellen</Title>
-          <CloseIcon></CloseIcon>
+          <CloseIcon onClick={handleClose}></CloseIcon>
         </Container1>
         <Container3>
           <Headings>Datum</Headings>
           <Container2>
-            <InputFieldSmall type="date"></InputFieldSmall>
-            <InputFieldSmall type="date"></InputFieldSmall>
+            <InputFieldSmall style={styleFirstInput} type="date"></InputFieldSmall>
+            <InputFieldSmall style={styleSecondInput} type="date"></InputFieldSmall>
           </Container2>
           <Headings>Kategorie</Headings>
           <SelectField></SelectField>
-          <SubmitButton>Speichern</SubmitButton>
+          <SubmitButton onClick={handleClick}>Speichern</SubmitButton>
         </Container3>
       </FormElement>
     </Container>

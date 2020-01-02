@@ -8,11 +8,9 @@ import FilterForm from '../components/FilterForm.js';
 import { useState } from 'react';
 
 const SpendingsBackground = styled.header`
-  background-color: ${props => props.theme.colors.background};
-  height: 35%;
   width: 100%;
-  position: fixed;
-  top: 0;
+  padding-bottom: 6rem;
+  position: relative;
 `;
 const StyleWaveIcon = {
   position: 'absolute',
@@ -41,12 +39,8 @@ const Destination = styled.p`
 
 const ContentContainer = styled.div`
   width: 100%;
-  height: 65%;
-  position: fixed;
-  bottom: 0;
-  /* position: fixed;
-  bottom: 0;
-  overflow: auto; */
+  background-color: ${props => props.theme.colors.backgroundprimary};
+  padding-bottom: 6rem;
 `;
 
 const TitleContainer = styled.div`
@@ -67,9 +61,11 @@ const Date = styled.p`
   font-size: 14px;
   margin-left: 30px;
   color: ${props => props.theme.colors.fontcolor};
+  margin-bottom: 5px;
 `;
 
 const Container = styled.div`
+  background-color: ${props => props.theme.colors.background};
   overflow: auto;
 `;
 
@@ -83,6 +79,21 @@ const FilterButton = styled.button`
 
 export default function SpendingList() {
   const [showFilter, setShowFilter] = useState(false);
+  function handleFilter(event) {
+    event.preventDefault();
+    console.log(event);
+  }
+  function closeFilter(event) {
+    setShowFilter(false);
+  }
+  const FilterFormFn = ({ showFilter }) => {
+    if (!showFilter) {
+      return null;
+    }
+
+    return <FilterForm handleClick={handleFilter} handleClose={closeFilter} />;
+  };
+
   return (
     <>
       <Container>
@@ -97,10 +108,9 @@ export default function SpendingList() {
         <ContentContainer>
           <TitleContainer>
             <ContentTitle>Ausgaben</ContentTitle>
-            <FilterButton onClick={() => setShowFilter(!showFilter)}>
+            <FilterButton onClick={() => setShowFilter(true)}>
               <FilterIcon style={StyleIcon} />
             </FilterButton>
-            {showFilter && <FilterForm />}
           </TitleContainer>
           <Date>Heute</Date>
           <SpendingCard />
@@ -109,8 +119,9 @@ export default function SpendingList() {
           <SpendingCard />
           <SpendingCard />
         </ContentContainer>
+        <FilterFormFn showFilter={showFilter} />
+        <NavBarFooter></NavBarFooter>
       </Container>
-      <NavBarFooter></NavBarFooter>
     </>
   );
 }
