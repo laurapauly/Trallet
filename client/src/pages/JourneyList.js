@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import WaveIcon from '../components/assets/wave.js';
 import JourneyCard from '../components/JourneyCard.js';
 import PlusIcon from '../components/icons/plus.js';
-import NewJourneyForm from '../components/NewJourneyForm.js';
+import AddNewJourney from '../components/AddNewJourney.js';
 import { useState } from 'react';
 
 const JourneysBackground = styled.header`
@@ -64,7 +64,7 @@ export default function JourneyList() {
     if (!showForm) {
       return null;
     }
-    return <NewJourneyForm handleClick={handleForm} handleClose={closeForm} />;
+    return <AddNewJourney handleClick={handleForm} handleClose={closeForm} />;
   };
 
   return (
