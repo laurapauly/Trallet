@@ -107,12 +107,14 @@ export default function AddNewJourney({ handleClick, handleClose }) {
           <Headings>Titel</Headings>
           <InputField
             type="text"
+            required
             placeholder="z.B. Bali"
             onChange={event => setTitle(event.target.value)}
           ></InputField>
           <Headings>Reisebudget</Headings>
           <InputField
             tpye="text"
+            required
             placeholder="z.B. 500€"
             onChange={event => setBudget(event.target.value)}
           ></InputField>
@@ -122,11 +124,13 @@ export default function AddNewJourney({ handleClick, handleClose }) {
           <Container2>
             <InputFieldSmall
               type="date"
+              required
               style={styleFirstInput}
               onChange={event => setDate1(event.target.value)}
             ></InputFieldSmall>
             <InputFieldSmall
               type="date"
+              required
               style={styleSecondInput}
               onChange={event => setDate2(event.target.value)}
             ></InputFieldSmall>
