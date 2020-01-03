@@ -5,6 +5,7 @@ import InputFieldSmall from './InputFieldSmall';
 import CloseIcon from './icons/close.js';
 import SubmitButton from './SubmitButton';
 import InputField from './InputField.js';
+import { useState } from 'react';
 
 const Container = styled.div`
   padding: 20px 5px 20px 5px;
@@ -72,30 +73,65 @@ const styleSecondInput = {
   marginRight: 0
 };
 
-export default function NewJourneyForm({ handleClick, handleClose }) {
+export default function AddNewJourney({ handleClick, handleClose }) {
+  const [title, setTitle] = useState('');
+  const [budget, setBudget] = useState(null);
+  const [date1, setDate1] = useState('');
+  const [date2, setDate2] = useState('');
+
+  async function handleSubmit(event) {
+    await fetch('http://localhost:4000/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ title, budget, date1, date2 })
+    });
+
+    setTitle('');
+    setBudget(null);
+    setDate1('');
+    setDate2('');
+  }
   function stop(event) {
     event.stopPropagation();
   }
   return (
     <Container onClick={handleClose}>
-      <FormElement onClick={stop}>
+      <FormElement onClick={stop} onSubmit={handleSubmit}>
         <Container1>
           <Title>Neue Reise</Title>
           <CloseIcon onClick={handleClose} />
         </Container1>
         <Container3>
           <Headings>Titel</Headings>
-          <InputField type="text" placeholder="z.B. Bali"></InputField>
+          <InputField
+            type="text"
+            placeholder="z.B. Bali"
+            onChange={event => setTitle(event.target.value)}
+          ></InputField>
           <Headings>Reisebudget</Headings>
-          <InputField tpye="text" placeholder="z.B. 500€"></InputField>
+          <InputField
+            tpye="text"
+            placeholder="z.B. 500€"
+            onChange={event => setBudget(event.target.value)}
+          ></InputField>
         </Container3>
         <Container3>
           <Headings>Datum</Headings>
           <Container2>
-            <InputFieldSmall type="date" style={styleFirstInput}></InputFieldSmall>
-            <InputFieldSmall type="date" style={styleSecondInput}></InputFieldSmall>
+            <InputFieldSmall
+              type="date"
+              style={styleFirstInput}
+              onChange={event => setDate1(event.target.value)}
+            ></InputFieldSmall>
+            <InputFieldSmall
+              type="date"
+              style={styleSecondInput}
+              onChange={event => setDate2(event.target.value)}
+            ></InputFieldSmall>
           </Container2>
-          <SubmitButton onClick={handleClose}>Speichern</SubmitButton>
+          <SubmitButton>Speichern</SubmitButton>
         </Container3>
       </FormElement>
     </Container>
