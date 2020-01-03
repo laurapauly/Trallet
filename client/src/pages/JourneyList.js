@@ -53,14 +53,6 @@ const HeadingContainer = styled.div`
 `;
 
 export default function JourneyList() {
-  async function getJourneyItems() {
-    const response = await fetch('http://localhost:4000/items');
-    const newJourneys = await response.json();
-    console.log(newJourneys);
-  }
-
-  getJourneyItems();
-
   const [showForm, setShowForm] = useState(false);
   function handleForm(event) {
     event.preventDefault();
