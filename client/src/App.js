@@ -40,7 +40,7 @@ export default function App() {
               </Route>
             </Switch>
           </Container>
-        </Router>
+        </Router> 
       </ThemeProvider>
     </>
   );
