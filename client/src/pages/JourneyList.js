@@ -81,9 +81,6 @@ export default function JourneyList() {
       </JourneysBackground>
       <CardContainer>
         <JourneyCard></JourneyCard>
-        <JourneyCard></JourneyCard>
-        <JourneyCard></JourneyCard>
-        <JourneyCard></JourneyCard>
       </CardContainer>
       <JourneyFormFn showForm={showForm} />
     </>
