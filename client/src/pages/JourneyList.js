@@ -53,10 +53,17 @@ const HeadingContainer = styled.div`
 `;
 
 export default function JourneyList() {
+  async function getJourneyItems() {
+    const response = await fetch('http://localhost:4000/items');
+    const newJourneys = await response.json();
+    console.log(newJourneys);
+  }
+
+  getJourneyItems();
+
   const [showForm, setShowForm] = useState(false);
   function handleForm(event) {
     event.preventDefault();
-    console.log(event);
   }
   function closeForm(event) {
     setShowForm(false);
@@ -67,6 +74,7 @@ export default function JourneyList() {
     }
     return <NewJourneyForm handleClick={handleForm} handleClose={closeForm} />;
   };
+
   return (
     <>
       <JourneysBackground>
