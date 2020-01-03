@@ -80,7 +80,7 @@ export default function JourneyCard() {
 
   React.useEffect(() => {
     getJourneyItems();
-  });
+  }, []);
   return (
     <div>
       {journeyItems.map(item => (
