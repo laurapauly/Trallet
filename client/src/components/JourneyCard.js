@@ -4,6 +4,7 @@ import SeeMoreIcon from './icons/seemore.js';
 import light from '../themes/light.js';
 import PhotoIcon from './icons/addphoto.js';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const CardElement = styled.div`
   height: 100px;
@@ -70,21 +71,37 @@ const IconButton = styled(Link)`
 `;
 
 export default function JourneyCard() {
+  const [journeyItems, setJourneyItems] = useState([]);
+  async function getJourneyItems() {
+    const response = await fetch('http://localhost:4000/items');
+    const newJourneys = await response.json();
+    setJourneyItems(newJourneys);
+  }
+
+  React.useEffect(() => {
+    getJourneyItems();
+  }, []);
   return (
-    <CardElement>
-      <Picture>
-        <PhotoIcon />
-      </Picture>
-      <Wrapper>
-        <Destination>Südostasien</Destination>
-        <Wrapper2>
-          <Details>22.09 - 01.11.2019</Details>
-          <Details>1980€verfügbar</Details>
-        </Wrapper2>
-      </Wrapper>
-      <IconButton to="/">
-        <SeeMoreIcon />
-      </IconButton>
-    </CardElement>
+    <div>
+      {journeyItems.map(item => (
+        <CardElement key={item.id}>
+          <Picture>
+            <PhotoIcon />
+          </Picture>
+          <Wrapper>
+            <Destination>{item.title}</Destination>
+            <Wrapper2>
+              <Details>
+                {item.date1} - {item.date2}
+              </Details>
+              <Details>{item.budget} verfügbar</Details>
+            </Wrapper2>
+          </Wrapper>
+          <IconButton to="/">
+            <SeeMoreIcon />
+          </IconButton>
+        </CardElement>
+      ))}
+    </div>
   );
 }
