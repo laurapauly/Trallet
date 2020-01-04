@@ -12,7 +12,6 @@ const InputField = styled.input`
   font-size: 10px;
   text-align: left;
   padding: 10px;
-  margin: 5px;
   margin-bottom: 10px;
 `;
 
