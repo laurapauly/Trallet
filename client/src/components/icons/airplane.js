@@ -5,7 +5,7 @@ import light from '../../themes/light.js';
 const Svg = styled.svg`
   width: 30px;
   height: 30px;
-  fill: ${light.colors.action};
+  fill: ${light.colors.fontsecondary};
 `;
 
 export default function AirplaneIcon(props) {

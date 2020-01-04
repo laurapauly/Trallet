@@ -3,10 +3,9 @@ import styled from '@emotion/styled';
 import light from '../../themes/light.js';
 
 const Svg = styled.svg`
-  fill: ${light.colors.action};
+  fill: ${light.colors.fontsecondary};
   width: 30px;
   height: 30px;
-  margin-bottom: 45px;
 `;
 
 export default function ShoppingIcon(props) {
