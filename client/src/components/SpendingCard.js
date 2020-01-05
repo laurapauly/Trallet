@@ -1,62 +1,60 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light.js';
-import FoodIcon from './icons/food';
+import light from '../themes/light';
+import SpendingItem from './SpendingItem.js';
 
 const SpendingCardElement = styled.div`
-  height: 60px;
   box-shadow: 0pt 3pt 20pt #00000029;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-color: ${light.colors.basic};
   margin: 10px 20px 10px 20px;
 `;
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
+const Date = styled.div`
+  font-size: 14px;
+  margin-left: 30px;
+  color: ${props => props.theme.colors.fontcolor};
+  margin-bottom: 5px;
+  margin-top: 10px;
 `;
 
-const Title = styled.h5`
+const DividerLine = styled.hr`
   all: unset;
-  color: ${light.colors.fontsecondary};
+  width: 100%;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 `;
 
-const Location = styled.p`
-  all: unset;
-  font-size: 9pt;
-  color: ${light.colors.fontsmall};
+const Container = styled.div`
+  margin-top: 10px;
 `;
 
-const Spending = styled.h5`
-  all: unset;
-  color: ${light.colors.fontsecondary};
-  margin-bottom: 20px;
-  margin-right: 20px;
-`;
+export default function SpendingCard({ spendings, date }) {
+  function DividerFunc({ index, length }) {
+    if (index + 1 !== length) {
+      return <DividerLine></DividerLine>;
+    }
 
-const Wrapper2 = styled.div`
-  display: flex;
-  margin-right: 80px;
-  margin-left: 20px;
-`;
-
-export default function SpendingCard() {
+    return null;
+  }
   return (
-    <SpendingCardElement>
-      <Wrapper2>
-        <div>
-          <FoodIcon />
-        </div>
-        <Wrapper>
-          <Title>Oma Jamu</Title>
-          <Location>Canggu, Bali</Location>
-        </Wrapper>
-      </Wrapper2>
-      <Spending>-50.000 IDR</Spending>
-    </SpendingCardElement>
+    <Container>
+      <Date>{date}</Date>
+      <SpendingCardElement>
+        {spendings.map((spending, index) => {
+          return (
+            <>
+              <SpendingItem spending={spending} key={spending.id} />
+              <DividerFunc index={index} length={spendings.length} />
+            </>
+          );
+        })}
+      </SpendingCardElement>
+    </Container>
   );
 }
