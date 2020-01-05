@@ -2,14 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import light from '../../themes/light.js';
 
-const Svg = styled.svg`
-  fill: ${light.colors.action};
-  width: 30px;
-  height: 30px;
-  margin-bottom: 45px;
-`;
-
 export default function SmileyIcon(props) {
+  const Svg = styled.svg`
+    fill: ${light.colors.fontsecondary};
+    width: ${props.size}px;
+    height: ${props.size}px;
+  `;
   return (
     <Svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" {...props}>
       <path d="M0 0h24v24H0z" fill="none" />

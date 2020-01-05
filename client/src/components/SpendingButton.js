@@ -1,16 +1,23 @@
 import styled from '@emotion/styled';
+import React from 'react';
 
-const SpendingButton = styled.button`
-  height: 35px;
-
-  background-color: ${props =>
-    props.active ? props.theme.colors.background : props.theme.colors.backgroundprimary};
+const Button = styled.button`
+  background-color: ${props => props.theme.colors.backgroundprimary};
   border-radius: 10px;
   outline: none;
   border: none;
-  margin: 3px 0px 3px 0px;
   text-align: center;
-  padding: 4px;
+  height: 35px;
+  margin: 5px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-export default SpendingButton;
+export default function SpendingButton({ children, onClick }) {
+  function localOnClick(event) {
+    event.preventDefault();
+    onClick();
+  }
+  return <Button onClick={localOnClick}>{children}</Button>;
+}

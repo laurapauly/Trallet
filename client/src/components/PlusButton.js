@@ -49,7 +49,6 @@ export default function Add() {
     <>
       <ButtonBackground>
         <PlusButton onClick={() => setShowForm(true)}>
-          {showForm && <SpendingForm />}
           <PlusIcon></PlusIcon>
         </PlusButton>
       </ButtonBackground>

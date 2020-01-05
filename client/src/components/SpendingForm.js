@@ -4,16 +4,11 @@ import light from '../themes/light.js';
 import InputFieldSmall from './InputFieldSmall.js';
 import CloseIcon from './icons/close.js';
 import SubmitButton from './SubmitButton';
-import SpendingButton from './SpendingButton';
 import InputField from './InputField';
-import FoodIcon from './icons/food.js';
-import TransportIcon from './icons/transport.js';
-import AirplaneIcon from './icons/airplane.js';
-import HotelIcon from './icons/hotel.js';
-import DrinkIcon from './icons/drinks.js';
-import ShoppingIcon from './icons/shopping.js';
-import ActionIcon from './icons/action.js';
-import SmileyIcon from './icons/smiley.js';
+import { useState } from 'react';
+import FormItem from './FormItem.js';
+import IconSelect from './IconSelect.js';
+import categories from './Categories.js';
 
 const Container = styled.div`
   padding: 20px 5px 20px 5px;
@@ -50,151 +45,91 @@ const Title = styled.p`
 const Container1 = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-const Container2 = styled.div`
-  display: flex;
-  justify-content: center;
   width: 100%;
-`;
-
-const Container3 = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
-`;
-
-const Headings = styled.p`
-  all: unset;
-  margin-top: 10px;
-  font-size: 14px;
-  margin-right: auto;
-  margin-left: 5px;
-`;
-
-const CategorysContainer = styled.div`
-  display: flex;
-  align-items: space-between;
-  margin-top: 5px;
-  width: 100%;
-`;
-
-const CategoryTitle = styled.p`
-  all: unset;
-  font-size: 7pt;
-  color: ${light.colors.fontsecondary};
-  text-align: center;
-  margin-top: 10px;
 `;
 
 const CategoryContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
-  margin-left: 0;
-  margin-bottom: 10px;
+  margin-top: -20px;
 `;
 
-const styleFirstInput = {
-  marginLeft: 0
-};
-
-const styleSecondInput = {
-  marginRight: 0
-};
-
-const styleButtonRight = {
-  marginRight: '5px'
-};
-
-const styleButtonLeft = {
-  marginLeft: '5px'
+const styleFormItem = {
+  flex: '0 0 48%'
 };
 
 export default function SpendingForm({ handleClick, handleClose, value }) {
+  const [title, setTitle] = useState('');
+  const [amount, setAmount] = useState(null);
+  const [date, setDate] = useState('');
+  const [location, setLocation] = useState('');
+  const [category, setCategory] = useState('');
+
+  async function handleSubmit(event) {
+    await fetch('http://localhost:4040/items/1/spendings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ title, amount, date, location, category })
+    });
+
+    setTitle('');
+    setAmount(null);
+    setDate('');
+    setLocation('');
+    setCategory('');
+  }
   function stop(event) {
     event.stopPropagation();
   }
+
   return (
     <Container onClick={handleClose}>
-      <FormElement onClick={stop}>
+      <FormElement onClick={stop} onSubmit={handleSubmit}>
         <Container1>
           <Title>Neue Ausgabe</Title>
           <CloseIcon onClick={handleClose}></CloseIcon>
         </Container1>
-        <Headings>Titel</Headings>
-        <InputField placeholder="z.B. Oma Jamu"></InputField>
+        <FormItem label="Titel">
+          <InputField
+            required
+            placeholder="z.B. Oma Jamu"
+            onChange={event => setTitle(event.target.value)}
+          ></InputField>
+        </FormItem>
         <Container1>
-          <Headings>Wert</Headings>
-          <Headings>Datum</Headings>
-        </Container1>
-        <Container3>
-          <Container2>
+          <FormItem label="Wert" style={styleFormItem}>
             <InputFieldSmall
+              required
               placeholder="Euro"
-              type="text"
-              style={styleFirstInput}
+              type="number"
+              onChange={event => setAmount(event.target.value)}
             ></InputFieldSmall>
-            <InputFieldSmall type="date" style={styleSecondInput}></InputFieldSmall>
-          </Container2>
-          <Headings>Ort</Headings>
-          <InputField placeholder="z.B. Canggu, Bali"></InputField>
-          <Headings>Kategorie</Headings>
-          <CategorysContainer>
-            <CategoryContainer>
-              <CategoryTitle>Essen</CategoryTitle>
-              <SpendingButton style={styleButtonRight}>
-                <FoodIcon fill={light.colors.action}></FoodIcon>
-              </SpendingButton>
-            </CategoryContainer>
-            <CategoryContainer>
-              <CategoryTitle>Transport</CategoryTitle>
-              <SpendingButton style={styleButtonRight} onClick={handleClick}>
-                <TransportIcon fill={light.colors.action}></TransportIcon>
-              </SpendingButton>
-            </CategoryContainer>
-            <CategoryContainer>
-              <CategoryTitle>Flüge</CategoryTitle>
-              <SpendingButton onClick={handleClick}>
-                <AirplaneIcon fill={light.colors.action}></AirplaneIcon>
-              </SpendingButton>
-            </CategoryContainer>
-            <CategoryContainer>
-              <CategoryTitle>Hotel</CategoryTitle>
-              <SpendingButton style={styleButtonLeft} onClick={handleClick}>
-                <HotelIcon fill={light.colors.action}></HotelIcon>
-              </SpendingButton>
-            </CategoryContainer>
-          </CategorysContainer>
-          <CategorysContainer>
-            <CategoryContainer style={styleFirstInput}>
-              <CategoryTitle>Drinks</CategoryTitle>
-              <SpendingButton onClick={handleClick} style={styleButtonRight}>
-                <DrinkIcon fill={light.colors.action}></DrinkIcon>
-              </SpendingButton>
-            </CategoryContainer>
-            <CategoryContainer>
-              <CategoryTitle>Einkauf</CategoryTitle>
-              <SpendingButton onClick={handleClick} style={styleButtonRight}>
-                <ShoppingIcon fill={light.colors.action}></ShoppingIcon>
-              </SpendingButton>
-            </CategoryContainer>
-            <CategoryContainer>
-              <CategoryTitle>Freizeit</CategoryTitle>
-              <SpendingButton onClick={handleClick}>
-                <ActionIcon fill={light.colors.action}></ActionIcon>
-              </SpendingButton>
-            </CategoryContainer>
-            <CategoryContainer style={styleSecondInput}>
-              <CategoryTitle>Sonstiges</CategoryTitle>
-              <SpendingButton onClick={handleClick} style={styleButtonLeft}>
-                <SmileyIcon fill={light.colors.action}></SmileyIcon>
-              </SpendingButton>
-            </CategoryContainer>
-          </CategorysContainer>
-          <SubmitButton onClick={handleClick}>Speichern</SubmitButton>
-        </Container3>
+          </FormItem>
+
+          <FormItem label="Datum" style={styleFormItem}>
+            <InputFieldSmall
+              required
+              type="date"
+              onChange={event => setDate(event.target.value)}
+            ></InputFieldSmall>
+          </FormItem>
+        </Container1>
+        <FormItem label="Ort">
+          <InputField
+            required
+            placeholder="z.B. Canggu, Bali"
+            onChange={event => setLocation(event.target.value)}
+          ></InputField>
+        </FormItem>
+        <FormItem label="Kategorie" />
+        <CategoryContainer>
+          <IconSelect items={categories} onSelect={setCategory} selected={category} />
+        </CategoryContainer>
+        <SubmitButton>Speichern</SubmitButton>
       </FormElement>
     </Container>
   );
