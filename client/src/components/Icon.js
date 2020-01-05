@@ -16,43 +16,43 @@ import ShoppingIcon from './icons/shopping';
 import SmileyIcon from './icons/smiley';
 import UmbrellaIcon from './icons/umbrella';
 
-export default function Icon({ icon, fill }) {
+export default function Icon({ icon, fill, size }) {
   switch (icon) {
     case 'drinks':
-      return <DrinkIcon fill={fill} />;
+      return <DrinkIcon fill={fill} size={size} />;
     case 'food':
-      return <FoodIcon fill={fill} />;
+      return <FoodIcon fill={fill} size={size} />;
     case 'transport':
-      return <TransportIcon fill={fill} />;
+      return <TransportIcon fill={fill} size={size} />;
 
     case 'action':
-      return <ActionIcon fill={fill} />;
+      return <ActionIcon fill={fill} size={size} />;
     case 'airplane':
-      return <AirplaneIcon fill={fill} />;
+      return <AirplaneIcon fill={fill} size={size} />;
     case 'chart':
-      return <ChartIcon fill={fill} />;
+      return <ChartIcon fill={fill} size={size} />;
     case 'close':
-      return <CloseIcon fill={fill} />;
+      return <CloseIcon fill={fill} size={size} />;
     case 'filter':
-      return <FilterIcon fill={fill} />;
+      return <FilterIcon fill={fill} size={size} />;
 
     case 'home':
-      return <HomeIcon fill={fill} />;
+      return <HomeIcon fill={fill} size={size} />;
     case 'hotel':
-      return <HotelIcon fill={fill} />;
+      return <HotelIcon fill={fill} size={size} />;
     case 'map':
-      return <MapIcon fill={fill} />;
+      return <MapIcon fill={fill} size={size} />;
     case 'plus':
-      return <PlusIcon fill={fill} />;
+      return <PlusIcon fill={fill} size={size} />;
     case 'seemore':
-      return <SeeMoreIcon fill={fill} />;
+      return <SeeMoreIcon fill={fill} size={size} />;
     case 'shopping':
-      return <ShoppingIcon fill={fill} />;
+      return <ShoppingIcon fill={fill} size={size} />;
     case 'smiley':
-      return <SmileyIcon fill={fill} />;
+      return <SmileyIcon fill={fill} size={size} />;
 
     case 'umbrella':
-      return <UmbrellaIcon fill={fill} />;
+      return <UmbrellaIcon fill={fill} size={size} />;
     default:
       return null;
   }
