@@ -8,6 +8,7 @@ import InputField from './InputField';
 import { useState } from 'react';
 import FormItem from './FormItem.js';
 import IconSelect from './IconSelect.js';
+import categories from './Categories.js';
 
 const Container = styled.div`
   padding: 20px 5px 20px 5px;
@@ -58,57 +59,6 @@ const CategoryContainer = styled.div`
 const styleFormItem = {
   flex: '0 0 48%'
 };
-
-const categories = [
-  {
-    icon: 'food',
-    value: 'food',
-    fill: light.colors.action,
-    title: 'Essen'
-  },
-  {
-    icon: 'transport',
-    value: 'transport',
-    fill: light.colors.action,
-    title: 'Transport'
-  },
-  {
-    icon: 'airplane',
-    value: 'airplane',
-    fill: light.colors.action,
-    title: 'Flüge'
-  },
-  {
-    icon: 'hotel',
-    value: 'hotel',
-    fill: light.colors.action,
-    title: 'Hotel'
-  },
-  {
-    icon: 'drinks',
-    value: 'drinks',
-    fill: light.colors.action,
-    title: 'Party'
-  },
-  {
-    icon: 'shopping',
-    value: 'shopping',
-    fill: light.colors.action,
-    title: 'Einkauf'
-  },
-  {
-    icon: 'action',
-    value: 'action',
-    fill: light.colors.action,
-    title: 'Freizeit'
-  },
-  {
-    icon: 'smiley',
-    value: 'smiley',
-    fill: light.colors.action,
-    title: 'Sonstiges'
-  }
-];
 
 export default function SpendingForm({ handleClick, handleClose, value }) {
   const [title, setTitle] = useState('');
