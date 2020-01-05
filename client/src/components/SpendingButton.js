@@ -6,15 +6,12 @@ const Button = styled.button`
   border-radius: 10px;
   outline: none;
   border: none;
-
   text-align: center;
-  height: 50px;
-  margin: 10px 0px;
+  height: 35px;
+  margin: 5px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  flex: 0 0 23%;
 `;
 
 export default function SpendingButton({ children, onClick }) {
