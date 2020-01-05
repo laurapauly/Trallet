@@ -6,6 +6,7 @@ import FilterIcon from '../components/icons/filter.js';
 import SpendingCard from '../components/SpendingCard.js';
 import FilterForm from '../components/FilterForm.js';
 import { useState } from 'react';
+import GroupSpending from '../lib/GroupSpendings.js';
 
 const SpendingsBackground = styled.header`
   width: 100%;
@@ -57,13 +58,6 @@ const StyleIcon = {
   margin: '30px 0px 0px 200px'
 };
 
-const Date = styled.p`
-  font-size: 14px;
-  margin-left: 30px;
-  color: ${props => props.theme.colors.fontcolor};
-  margin-bottom: 5px;
-`;
-
 const Container = styled.div`
   background-color: ${props => props.theme.colors.background};
   overflow: auto;
@@ -78,6 +72,18 @@ const FilterButton = styled.button`
 `;
 
 export default function SpendingList() {
+  const [spendingItems, setSpendingItems] = useState({});
+  async function getSpendingItems() {
+    const response = await fetch('http://localhost:4040/items/1/spendings');
+    const newSpending = await response.json();
+    const transformedSpendings = GroupSpending(newSpending);
+    setSpendingItems(transformedSpendings);
+  }
+
+  React.useEffect(() => {
+    getSpendingItems();
+  }, []);
+
   const [showFilter, setShowFilter] = useState(false);
   function handleFilter(event) {
     event.preventDefault();
@@ -112,12 +118,10 @@ export default function SpendingList() {
               <FilterIcon style={StyleIcon} />
             </FilterButton>
           </TitleContainer>
-          <Date>Heute</Date>
-          <SpendingCard />
-          <SpendingCard />
-          <SpendingCard />
-          <SpendingCard />
-          <SpendingCard />
+
+          {Object.keys(spendingItems).map(date => {
+            return <SpendingCard spendings={spendingItems[date]} key={date} date={date} />;
+          })}
         </ContentContainer>
         <FilterFormFn showFilter={showFilter} />
         <NavBarFooter></NavBarFooter>
