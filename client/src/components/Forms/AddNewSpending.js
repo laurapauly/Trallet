@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InputFieldSmall from '../InputFieldSmall.js';
-import CloseIcon from '../icons/close.js';
+import InputFieldSmall from '../InputFieldSmall';
+import CloseIcon from '../icons/close';
 import SubmitButton from './SubmitButton';
 import InputField from '../InputField';
 import { useState } from 'react';
-import FormItem from './FormItem.js';
-import IconSelect from './IconSelect.js';
-import categories from '../Categories.js';
-import FormContainer from './FormContainer.js';
-import FormElement from './FormElement.js';
-import FormHeading from './FormHeading.js';
+import FormItem from './FormItem';
+import IconSelect from './IconSelect';
+import categories from '../Categories';
+import FormContainer from './FormContainer';
+import FormElement from './FormElement';
+import FormHeading from './FormHeading';
 import FormContentContainer from './FormContentContainer';
 
 const CategoryContainer = styled.div`
@@ -25,7 +25,7 @@ const styleFormItem = {
   flex: '0 0 48%'
 };
 
-export default function AddNewSpending({ handleClose, value }) {
+export default function AddNewSpending({ handleClick, handleClose, value }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(null);
   const [date, setDate] = useState('');

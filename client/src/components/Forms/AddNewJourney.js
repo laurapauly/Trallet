@@ -1,12 +1,12 @@
 import React from 'react';
 import InputFieldSmall from '../InputFieldSmall';
-import CloseIcon from '../icons/close.js';
+import CloseIcon from '../icons/close';
 import SubmitButton from './SubmitButton';
-import InputField from '../InputField.js';
+import InputField from '../InputField';
 import { useState } from 'react';
-import FormItem from './FormItem.js';
-import FormContainer from './FormContainer.js';
-import FormElement from './FormElement.js';
+import FormItem from './FormItem';
+import FormContainer from './FormContainer';
+import FormElement from './FormElement';
 import FormHeading from './FormHeading';
 import FormContentContainer from './FormContentContainer';
 
