@@ -64,7 +64,7 @@ export default function JourneyList() {
     if (!showForm) {
       return null;
     }
-    return <AddNewJourney handleClick={handleForm} handleClose={closeForm} />;
+    return <AddNewJourney handleClick={handleForm} onClose={closeForm} />;
   };
 
   return (

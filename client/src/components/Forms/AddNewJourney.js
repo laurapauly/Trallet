@@ -17,7 +17,7 @@ const styleFormItem = {
 const styleFormElement = {
   height: '380px'
 };
-export default function AddNewJourney({ handleClick, handleClose }) {
+export default function AddNewJourney({ handleClick, onClose }) {
   const [title, setTitle] = useState('');
   const [budget, setBudget] = useState(null);
   const [startDate, setStartDate] = useState('');
@@ -41,11 +41,11 @@ export default function AddNewJourney({ handleClick, handleClose }) {
     event.stopPropagation();
   }
   return (
-    <FormContainer onClick={handleClose}>
+    <FormContainer onClick={onClose}>
       <FormElement onClick={stop} onSubmit={handleSubmit} style={styleFormElement}>
         <FormContentContainer>
           <FormHeading>Neue Reise</FormHeading>
-          <CloseIcon onClick={handleClose} />
+          <CloseIcon onClick={onClose} />
         </FormContentContainer>
         <FormItem label="Titel">
           <InputField
