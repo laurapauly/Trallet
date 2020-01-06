@@ -1,19 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light.js';
 
 const Select = styled.select`
   width: 100%;
   height: 35px;
-  background-color: ${light.colors.backgroundprimary};
+  background-color: ${props => props.theme.colors.backgroundprimary};
   border-radius: 10px;
-  color: ${light.colors.iconinactive};
+  color: ${props => props.theme.colors.iconinactive};
   outline: none;
   border: none;
   font-size: 10px;
   text-align: left;
-  padding: 5px;
-  margin: 5px;
+  padding: 10px;
   margin-bottom: 10px;
 `;
 

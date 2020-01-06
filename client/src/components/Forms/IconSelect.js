@@ -1,7 +1,7 @@
 import React from 'react';
-import light from '../themes/light.js';
+import light from '../../themes/light.js';
 import SpendingButton from './SpendingButton.js';
-import Icon from './Icon';
+import Icon from '../Icon';
 import styled from '@emotion/styled';
 
 const Title = styled.div`
@@ -32,8 +32,8 @@ export default function IconSelect({ items, onSelect, selected }) {
   return (
     <>
       {items.map(item => (
-        <Container>
-          <Title key={item.value}>{item.title} </Title>
+        <Container key={item.value}>
+          <Title>{item.title} </Title>
           <SpendingButton onClick={onClick(item.value)} active={selected === item.value}>
             <Icon icon={item.icon} fill={getFill(selected === item.value)} size={25} />
           </SpendingButton>

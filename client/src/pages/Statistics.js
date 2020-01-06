@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import WaveIcon from '../components/assets/wave.js';
+import WaveIcon from '../components/icons/wave.js';
 import InputFieldSmall from '../components/InputFieldSmall.js';
 import NavBarFooterWithoutAdd from '../components/NavBarFooterWithoutAdd.js';
 

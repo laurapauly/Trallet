@@ -1,52 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light.js';
-import InputFieldSmall from './InputFieldSmall.js';
-import CloseIcon from './icons/close.js';
+import InputFieldSmall from '../InputFieldSmall';
+import CloseIcon from '../icons/close';
 import SubmitButton from './SubmitButton';
-import InputField from './InputField';
+import InputField from '../InputField';
 import { useState } from 'react';
-import FormItem from './FormItem.js';
-import IconSelect from './IconSelect.js';
-import categories from './Categories.js';
-
-const Container = styled.div`
-  padding: 20px 5px 20px 5px;
-  margin-bottom: 200px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(5px);
-`;
-
-const FormElement = styled.form`
-  width: 100%;
-  box-shadow: 0px 3px 20px #00000029;
-  background-color: ${light.colors.basic};
-  height: 550px;
-  padding: 20px 30px 20px 30px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-const Title = styled.p`
-  font-size: 14pt;
-  margin-right: auto;
-  font-weight: bold;
-`;
-
-const Container1 = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-`;
+import FormItem from './FormItem';
+import IconSelect from './IconSelect';
+import categories from '../Categories';
+import FormContainer from './FormContainer';
+import FormElement from './FormElement';
+import FormHeading from './FormHeading';
+import FormContentContainer from './FormContentContainer';
 
 const CategoryContainer = styled.div`
   display: flex;
@@ -60,7 +25,7 @@ const styleFormItem = {
   flex: '0 0 48%'
 };
 
-export default function SpendingForm({ handleClick, handleClose, value }) {
+export default function AddNewSpending({ handleClick, handleClose, value }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(null);
   const [date, setDate] = useState('');
@@ -87,12 +52,12 @@ export default function SpendingForm({ handleClick, handleClose, value }) {
   }
 
   return (
-    <Container onClick={handleClose}>
+    <FormContainer onClick={handleClose}>
       <FormElement onClick={stop} onSubmit={handleSubmit}>
-        <Container1>
-          <Title>Neue Ausgabe</Title>
-          <CloseIcon onClick={handleClose}></CloseIcon>
-        </Container1>
+        <FormContentContainer>
+          <FormHeading>Neue Ausgabe</FormHeading>
+          <CloseIcon onClick={handleClose} />
+        </FormContentContainer>
         <FormItem label="Titel">
           <InputField
             required
@@ -100,7 +65,7 @@ export default function SpendingForm({ handleClick, handleClose, value }) {
             onChange={event => setTitle(event.target.value)}
           ></InputField>
         </FormItem>
-        <Container1>
+        <FormContentContainer>
           <FormItem label="Wert" style={styleFormItem}>
             <InputFieldSmall
               required
@@ -109,7 +74,6 @@ export default function SpendingForm({ handleClick, handleClose, value }) {
               onChange={event => setAmount(event.target.value)}
             ></InputFieldSmall>
           </FormItem>
-
           <FormItem label="Datum" style={styleFormItem}>
             <InputFieldSmall
               required
@@ -117,7 +81,7 @@ export default function SpendingForm({ handleClick, handleClose, value }) {
               onChange={event => setDate(event.target.value)}
             ></InputFieldSmall>
           </FormItem>
-        </Container1>
+        </FormContentContainer>
         <FormItem label="Ort">
           <InputField
             required
@@ -131,6 +95,6 @@ export default function SpendingForm({ handleClick, handleClose, value }) {
         </CategoryContainer>
         <SubmitButton>Speichern</SubmitButton>
       </FormElement>
-    </Container>
+    </FormContainer>
   );
 }

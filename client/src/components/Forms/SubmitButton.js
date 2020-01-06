@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
-import light from '../themes/light.js';
 
 const SubmitButton = styled.button`
   width: 100%;
   height: 35px;
-  background-color: ${light.colors.action};
+  background-color: ${props => props.theme.colors.action};
   border-radius: 10px;
-  color: ${light.colors.basic};
+  color: ${props => props.theme.colors.basic};
   outline: none;
   border: none;
   font-size: 12px;
