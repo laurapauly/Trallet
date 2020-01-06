@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import light from '../themes/light.js';
 import PlusIcon from './icons/plus.js';
 import { useState } from 'react';
-import AddNewSpending from './AddNewSpending';
+import AddNewSpending from './Forms/AddNewSpending';
 
 const PlusButton = styled.button`
   width: 50px;

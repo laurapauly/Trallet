@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import WaveIcon from '../components/assets/wave.js';
+import WaveIcon from '../components/icons/wave.js';
 import JourneyCard from '../components/JourneyCard.js';
 import PlusIcon from '../components/icons/plus.js';
-import AddNewJourney from '../components/AddNewJourney.js';
+import AddNewJourney from '../components/Forms/AddNewJourney.js';
 import { useState } from 'react';
 
 const JourneysBackground = styled.header`

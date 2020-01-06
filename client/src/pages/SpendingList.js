@@ -1,10 +1,10 @@
 import React from 'react';
-import WaveIcon from '../components/assets/wave.js';
+import WaveIcon from '../components/icons/wave.js';
 import styled from '@emotion/styled';
 import NavBarFooter from '../components/NavBarFooter.js';
 import FilterIcon from '../components/icons/filter.js';
 import SpendingCard from '../components/SpendingCard.js';
-import FilterForm from '../components/FilterForm.js';
+import FilterForm from '../components/Forms/FilterForm.js';
 import { useState } from 'react';
 import GroupSpending from '../lib/GroupSpendings.js';
 
