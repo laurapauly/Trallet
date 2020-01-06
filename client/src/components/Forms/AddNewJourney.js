@@ -17,11 +17,11 @@ const styleFormItem = {
 const styleFormElement = {
   height: '380px'
 };
-export default function AddNewJourney({ handleClose }) {
+export default function AddNewJourney({ handleClick, handleClose }) {
   const [title, setTitle] = useState('');
   const [budget, setBudget] = useState(null);
-  const [date1, setDate1] = useState('');
-  const [date2, setDate2] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   async function handleSubmit(event) {
     await fetch('http://localhost:4000/items', {
@@ -29,13 +29,13 @@ export default function AddNewJourney({ handleClose }) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ title, budget, date1, date2 })
+      body: JSON.stringify({ title, budget, startDate, endDate })
     });
 
     setTitle('');
     setBudget(null);
-    setDate1('');
-    setDate2('');
+    setStartDate('');
+    setEndDate('');
   }
   function stop(event) {
     event.stopPropagation();
@@ -51,13 +51,13 @@ export default function AddNewJourney({ handleClose }) {
           <InputField
             type="text"
             required
-            placeholder="z.B. Bali"
+            placeholder="z.B. Bali, Indonesien"
             onChange={event => setTitle(event.target.value)}
           ></InputField>
         </FormItem>
         <FormItem label="Reisebudget">
           <InputField
-            tpye="text"
+            tpye="number"
             required
             placeholder="z.B. 500€"
             onChange={event => setBudget(event.target.value)}
@@ -68,14 +68,14 @@ export default function AddNewJourney({ handleClose }) {
             <InputFieldSmall
               type="date"
               required
-              onChange={event => setDate1(event.target.value)}
+              onChange={event => setStartDate(event.target.value)}
             ></InputFieldSmall>
           </FormItem>
           <FormItem label="Enddatum" style={styleFormItem}>
             <InputFieldSmall
               type="date"
               required
-              onChange={event => setDate2(event.target.value)}
+              onChange={event => setEndDate(event.target.value)}
             ></InputFieldSmall>
           </FormItem>
         </FormContentContainer>
