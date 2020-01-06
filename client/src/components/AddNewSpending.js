@@ -60,7 +60,7 @@ const styleFormItem = {
   flex: '0 0 48%'
 };
 
-export default function SpendingForm({ handleClick, handleClose, value }) {
+export default function AddNewSpending({ handleClick, handleClose, value }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(null);
   const [date, setDate] = useState('');
