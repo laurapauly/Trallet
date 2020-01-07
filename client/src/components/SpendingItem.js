@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light.js';
-import Icon from './Icon.js';
+import categories from './categories';
 
 const Wrapper = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ export default function SpendingItem({ spending }) {
     <Container>
       <Wrapper2>
         <div>
-          <Icon icon={spending.category} />
+          <categories.Icon icon={spending.category} />
         </div>
         <Wrapper>
           <Title>{spending.title}</Title>
