@@ -73,7 +73,7 @@ const TitleandInput = styled.div`
   flex-direction: column;
 `;
 
-export default function Statistics() {
+export default function StatisticsList() {
   return (
     <>
       <StatisticsBackground>
