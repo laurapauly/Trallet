@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const Svg = styled.svg`
   fill: ${props =>
-    props.active ? props.theme.colors.fontprimary : props.theme.colors.iconinactive};
+    props.active ? props.theme.colors.fontPrimary : props.theme.colors.iconInactive};
   width: 25px;
   height: 25px;
 `;

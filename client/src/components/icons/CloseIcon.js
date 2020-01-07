@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import light from '../../themes/light.js';
 
 const Svg = styled.svg`
-  fill: ${light.colors.fontsecondary};
+  fill: ${light.colors.fontSecondary};
   width: 30px;
   height: 30px;
 `;
