@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light';
-import SpendingItem from './SpendingItem.js';
+import SpendingItem from './SpendingItem';
 
 const SpendingCardElement = styled.div`
   box-shadow: 0pt 3pt 20pt #00000029;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light.js';
+import light from '../themes/light';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
