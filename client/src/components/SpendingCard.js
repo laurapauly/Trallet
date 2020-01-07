@@ -17,9 +17,9 @@ const SpendingCardElement = styled.div`
 const Date = styled.div`
   font-size: 14px;
   margin-left: 30px;
-  color: ${props => props.theme.colors.fontcolor};
+  color: ${props => props.theme.colors.fontColor};
   margin-bottom: 5px;
-  margin-top: 10px;
+  margin-top: 15px;
 `;
 
 const DividerLine = styled.hr`

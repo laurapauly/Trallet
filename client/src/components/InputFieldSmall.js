@@ -4,9 +4,9 @@ import light from '../themes/light.js';
 const InputFieldSmall = styled.input`
   width: 100%;
   height: 35px;
-  background-color: ${light.colors.backgroundprimary};
+  background-color: ${light.colors.backgroundPrimary};
   border-radius: 10px;
-  color: ${light.colors.iconinactive};
+  color: ${light.colors.iconInactive};
   outline: none;
   border: none;
   font-size: 10px;

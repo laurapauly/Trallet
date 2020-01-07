@@ -11,17 +11,17 @@ const Wrapper = styled.div`
 
 const Title = styled.h5`
   all: unset;
-  color: ${light.colors.fontsecondary};
+  color: ${light.colors.fontSecondary};
 `;
 
 const Location = styled.p`
   all: unset;
   font-size: 9pt;
-  color: ${light.colors.fontsmall};
+  color: ${light.colors.fontSmall};
 `;
 
 const Spending = styled.div`
-  color: ${light.colors.fontsecondary};
+  color: ${light.colors.fontSecondary};
   text-align: right;
   flex: 1 1 auto;
   margin-left: auto;
