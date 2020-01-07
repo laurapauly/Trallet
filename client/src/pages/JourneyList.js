@@ -7,11 +7,9 @@ import AddNewJourney from '../components/Forms/AddNewJourney.js';
 import { useState } from 'react';
 
 const JourneysBackground = styled.header`
-  background-color: ${props => props.theme.colors.background};
-  height: 35%;
+  padding-bottom: 6rem;
   width: 100%;
-  position: fixed;
-  top: 0;
+  position: relative;
 `;
 
 const StyleWaveIcon = {
@@ -20,27 +18,25 @@ const StyleWaveIcon = {
 };
 
 const Heading = styled.h1`
-  margin: 70px 0px 0px 40px;
+  margin: 40px 0px 0px 30px;
   color: ${props => props.theme.colors.fontprimary};
 `;
 
 const SubHeading = styled.h5`
-  margin: 10px 0px 10px 40px;
+  margin: 10px 0px 10px 30px;
   color: ${props => props.theme.colors.fontprimary};
 `;
 
 const CardContainer = styled.div`
-  height: 65%;
   width: 100%;
-  margin-top: 20px;
-  position: fixed;
-  bottom: 0;
-  overflow: auto;
+  background-color: ${props => props.theme.colors.backgroundprimary};
+  padding-bottom: 6rem;
+  padding-top: 1rem;
 `;
 
 const StylePlusIcon = {
   fill: '#DCB480',
-  margin: '30px 15px 0px 90px'
+  margin: '40px 15px 0px 90px'
 };
 
 const HeaderContainer = styled.div`
@@ -50,6 +46,11 @@ const HeaderContainer = styled.div`
 const HeadingContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const Container = styled.div`
+  background-color: ${props => props.theme.colors.background};
+  overflow: auto;
 `;
 
 export default function JourneyList() {
@@ -69,20 +70,22 @@ export default function JourneyList() {
 
   return (
     <>
-      <JourneysBackground>
-        <HeaderContainer>
-          <HeadingContainer>
-            <Heading>Deine Reisen</Heading>
-            <SubHeading>im Überblick</SubHeading>
-          </HeadingContainer>
-          <PlusIcon style={StylePlusIcon} onClick={() => setShowForm(true)} />
-        </HeaderContainer>
-        <WaveIcon style={StyleWaveIcon} />
-      </JourneysBackground>
-      <CardContainer>
-        <JourneyCard></JourneyCard>
-      </CardContainer>
-      <JourneyFormFn showForm={showForm} />
+      <Container>
+        <JourneysBackground>
+          <HeaderContainer>
+            <HeadingContainer>
+              <Heading>Deine Reisen</Heading>
+              <SubHeading>im Überblick</SubHeading>
+            </HeadingContainer>
+            <PlusIcon style={StylePlusIcon} onClick={() => setShowForm(true)} />
+          </HeaderContainer>
+          <WaveIcon style={StyleWaveIcon} />
+        </JourneysBackground>
+        <CardContainer>
+          <JourneyCard></JourneyCard>
+        </CardContainer>
+        <JourneyFormFn showForm={showForm} />
+      </Container>
     </>
   );
 }
