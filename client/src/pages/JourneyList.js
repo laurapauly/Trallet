@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import WaveIcon from '../components/icons/wave.js';
-import JourneyCard from '../components/JourneyCard.js';
-import PlusIcon from '../components/icons/plus.js';
-import AddNewJourney from '../components/Forms/AddNewJourney.js';
+import WaveIcon from '../components/icons/WaveIcon';
+import JourneyCard from '../components/JourneyCard';
+import PlusIcon from '../components/icons/PlusIcon';
+import AddNewSpending from '../components/Forms/AddNewSpending';
 import { useState } from 'react';
 
 const JourneysBackground = styled.header`
@@ -12,32 +12,32 @@ const JourneysBackground = styled.header`
   position: relative;
 `;
 
-const StyleWaveIcon = {
-  position: 'absolute',
-  bottom: '0'
-};
+const StyleWaveIcon = styled(WaveIcon)`
+  position: absolute;
+  bottom: 0;
+`;
 
 const Heading = styled.h1`
   margin: 40px 0px 0px 30px;
-  color: ${props => props.theme.colors.fontprimary};
+  color: ${props => props.theme.colors.fontPrimary};
 `;
 
 const SubHeading = styled.h5`
   margin: 10px 0px 10px 30px;
-  color: ${props => props.theme.colors.fontprimary};
+  color: ${props => props.theme.colors.fontPrimary};
 `;
 
 const CardContainer = styled.div`
   width: 100%;
-  background-color: ${props => props.theme.colors.backgroundprimary};
+  background-color: ${props => props.theme.colors.backgroundPrimary};
   padding-bottom: 6rem;
   padding-top: 1rem;
 `;
 
-const StylePlusIcon = {
-  fill: '#DCB480',
-  margin: '40px 15px 0px 90px'
-};
+const StylePlusIcon = styled(PlusIcon)`
+  fill: #dcb480;
+  margin: 40px 15px 0px 90px;
+`;
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ export default function JourneyList() {
     if (!showForm) {
       return null;
     }
-    return <AddNewJourney handleClick={handleForm} onClose={closeForm} />;
+    return <AddNewSpending handleClick={handleForm} onClose={closeForm} />;
   };
 
   return (
@@ -77,9 +77,9 @@ export default function JourneyList() {
               <Heading>Deine Reisen</Heading>
               <SubHeading>im Überblick</SubHeading>
             </HeadingContainer>
-            <PlusIcon style={StylePlusIcon} onClick={() => setShowForm(true)} />
+            <StylePlusIcon onClick={() => setShowForm(true)} />
           </HeaderContainer>
-          <WaveIcon style={StyleWaveIcon} />
+          <StyleWaveIcon />
         </JourneysBackground>
         <CardContainer>
           <JourneyCard></JourneyCard>
