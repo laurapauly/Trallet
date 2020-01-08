@@ -10,14 +10,16 @@ import FormElement from './FormElement';
 import FormHeading from './FormHeading';
 import FormContentContainer from './FormContentContainer';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 
-const styleFormItem = {
-  flex: '0 0 48%'
-};
+const StyleFormItem = styled(FormItem)`
+  flex: 0 0 48%;
+`;
 
-const styleFormElement = {
-  height: '380px'
-};
+const StyleFormElement = styled(FormElement)`
+  height: 380px;
+`;
+
 export default function AddNewJourney({ onClose }) {
   const [title, setTitle] = useState('');
   const [budget, setBudget] = useState(null);
@@ -43,7 +45,7 @@ export default function AddNewJourney({ onClose }) {
   }
   return (
     <FormContainer onClick={onClose}>
-      <FormElement onClick={stop} onSubmit={handleSubmit} style={styleFormElement}>
+      <StyleFormElement onClick={stop} onSubmit={handleSubmit}>
         <FormContentContainer>
           <FormHeading>Neue Reise</FormHeading>
           <CloseIcon onClick={onClose} />
@@ -66,23 +68,23 @@ export default function AddNewJourney({ onClose }) {
           ></InputField>
         </FormItem>
         <FormContentContainer>
-          <FormItem label="Startdatum" style={styleFormItem}>
+          <StyleFormItem label="Startdatum">
             <InputFieldSmall
               type="date"
               required
               onChange={event => setStartDate(event.target.value)}
             ></InputFieldSmall>
-          </FormItem>
-          <FormItem label="Enddatum" style={styleFormItem}>
+          </StyleFormItem>
+          <StyleFormItem label="Enddatum">
             <InputFieldSmall
               type="date"
               required
               onChange={event => setEndDate(event.target.value)}
             ></InputFieldSmall>
-          </FormItem>
+          </StyleFormItem>
         </FormContentContainer>
         <SubmitButton>Speichern</SubmitButton>
-      </FormElement>
+      </StyleFormElement>
     </FormContainer>
   );
 }
