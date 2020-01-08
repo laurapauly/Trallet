@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 const Select = styled.select`
   width: 100%;
   height: 35px;
-  background-color: ${props => props.theme.colors.backgroundprimary};
+  background-color: ${props => props.theme.colors.backgroundPrimary};
   border-radius: 10px;
-  color: ${props => props.theme.colors.iconinactive};
+  color: ${props => props.theme.colors.iconInactive};
   outline: none;
   border: none;
   font-size: 10px;

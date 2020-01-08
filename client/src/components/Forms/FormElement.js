@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import light from '../../themes/light.js';
+import light from '../../themes/light';
 
 const FormElement = styled.form`
   width: 100%;

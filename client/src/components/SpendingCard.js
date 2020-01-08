@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light';
-import SpendingItem from './SpendingItem.js';
+import SpendingItem from './SpendingItem';
+import PropTypes from 'prop-types';
 
 const SpendingCardElement = styled.div`
   box-shadow: 0pt 3pt 20pt #00000029;
@@ -17,9 +18,9 @@ const SpendingCardElement = styled.div`
 const Date = styled.div`
   font-size: 14px;
   margin-left: 30px;
-  color: ${props => props.theme.colors.fontcolor};
+  color: ${props => props.theme.colors.fontColor};
   margin-bottom: 5px;
-  margin-top: 10px;
+  margin-top: 15px;
 `;
 
 const DividerLine = styled.hr`
@@ -58,3 +59,10 @@ export default function SpendingCard({ spendings, date }) {
     </Container>
   );
 }
+
+SpendingCard.propTypes = {
+  spendings: PropTypes.array,
+  date: PropTypes.string,
+  index: PropTypes.number,
+  length: PropTypes.number
+};

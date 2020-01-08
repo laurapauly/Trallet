@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = styled.button`
-  background-color: ${props => props.theme.colors.backgroundprimary};
+  background-color: ${props => props.theme.colors.backgroundPrimary};
   border-radius: 10px;
   outline: none;
   border: none;
@@ -21,3 +22,8 @@ export default function SpendingButton({ children, onClick }) {
   }
   return <Button onClick={localOnClick}>{children}</Button>;
 }
+
+SpendingButton.propTypes = {
+  children: PropTypes.element,
+  onClick: PropTypes.func
+};

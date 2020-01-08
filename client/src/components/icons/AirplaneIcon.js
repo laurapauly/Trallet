@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import light from '../../themes/light.js';
+import PropTypes from 'prop-types';
 
 export default function AirplaneIcon(props) {
   const Svg = styled.svg`
+    fill: ${light.colors.fontSecondary};
     width: ${props.size}px;
     height: ${props.size}px;
-    fill: ${light.colors.fontsecondary};
   `;
   return (
     <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
@@ -16,3 +17,6 @@ export default function AirplaneIcon(props) {
     </Svg>
   );
 }
+AirplaneIcon.propTypes = {
+  size: PropTypes.number
+};

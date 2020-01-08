@@ -1,14 +1,14 @@
 const light = {
   colors: {
-    fontprimary: '#176574',
-    fontsecondary: '##00161A',
-    iconinactive: '#707070',
+    fontPrimary: '#176574',
+    fontSecondary: '##00161A',
+    iconInactive: '#707070',
     action: '#DCB480',
-    fontsmall: '#00161A5F',
-    backgroundprimary: '#EFF8F9',
+    fontSmall: '#00161A5F',
+    backgroundPrimary: '#EFF8F9',
     basic: '#FFFFFF',
     background: '#91D5E2',
-    fontcolor: '#0A363E'
+    fontColor: '#0A363E'
   }
 };
 

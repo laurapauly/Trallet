@@ -1,7 +1,6 @@
 import React from 'react';
-import light from '../../themes/light.js';
-import SpendingButton from './SpendingButton.js';
-import Icon from '../Icon';
+import light from '../../themes/light';
+import SpendingButton from './SpendingButton';
 import styled from '@emotion/styled';
 
 const Title = styled.div`
@@ -24,21 +23,17 @@ export default function IconSelect({ items, onSelect, selected }) {
 
   function getFill(active) {
     if (active) {
-      return light.colors.fontprimary;
+      return light.colors.fontPrimary;
     }
     return light.colors.action;
   }
 
-  return (
-    <>
-      {items.map(item => (
-        <Container key={item.value}>
-          <Title>{item.title} </Title>
-          <SpendingButton onClick={onClick(item.value)} active={selected === item.value}>
-            <Icon icon={item.icon} fill={getFill(selected === item.value)} size={25} />
-          </SpendingButton>
-        </Container>
-      ))}
-    </>
-  );
+  return items.map(item => (
+    <Container key={item.value}>
+      <Title>{item.title} </Title>
+      <SpendingButton onClick={onClick(item.value)} active={selected === item.value}>
+        <item.Icon fill={getFill(selected === item.value)} size={25} />
+      </SpendingButton>
+    </Container>
+  ));
 }

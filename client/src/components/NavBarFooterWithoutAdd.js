@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import UmbrellaIcon from './icons/umbrella.js';
-import HomeIcon from './icons/home.js';
-import ChartIcon from './icons/chart.js';
-import MapIcon from './icons/map.js';
+import UmbrellaIcon from './icons/UmbrellaIcon';
+import HomeIcon from './icons/HomeIcon';
+import ChartIcon from './icons/ChartIcon';
+import MapIcon from './icons/MapIcon';
 
 import { useLocation, Link } from 'react-router-dom';
 

@@ -2,13 +2,14 @@
   "name": "trallet",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "build-client": "cd client && npm run build",
     "build-storybook": "cd client && npm run build-storybook",
     "build": "npm run build-storybook && npm run build-client",
     "client": "cd client && npm start",
-    "server": "node server.js",
+    "server": "json-server -p 4040 db.json",
     "storybook": "cd client && npm run storybook",
     "test": "cd client && npm test",
     "postinstall": "cd client && npm install"

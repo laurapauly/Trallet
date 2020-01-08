@@ -1,47 +1,44 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import WaveIcon from '../components/icons/wave.js';
-import JourneyCard from '../components/JourneyCard.js';
-import PlusIcon from '../components/icons/plus.js';
-import AddNewJourney from '../components/Forms/AddNewJourney.js';
+import WaveIcon from '../components/icons/WaveIcon';
+import JourneyCard from '../components/JourneyCard';
+import PlusIcon from '../components/icons/PlusIcon';
+import AddNewJourney from '../components/Forms/AddNewJourney';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const JourneysBackground = styled.header`
-  background-color: ${props => props.theme.colors.background};
-  height: 35%;
+  padding-bottom: 6rem;
   width: 100%;
-  position: fixed;
-  top: 0;
+  position: relative;
 `;
 
-const StyleWaveIcon = {
-  position: 'absolute',
-  bottom: '0'
-};
+const StyleWaveIcon = styled(WaveIcon)`
+  position: absolute;
+  bottom: 0;
+`;
 
 const Heading = styled.h1`
-  margin: 70px 0px 0px 40px;
-  color: ${props => props.theme.colors.fontprimary};
+  margin: 40px 0px 0px 30px;
+  color: ${props => props.theme.colors.fontPrimary};
 `;
 
 const SubHeading = styled.h5`
-  margin: 10px 0px 10px 40px;
-  color: ${props => props.theme.colors.fontprimary};
+  margin: 10px 0px 10px 30px;
+  color: ${props => props.theme.colors.fontPrimary};
 `;
 
 const CardContainer = styled.div`
-  height: 65%;
   width: 100%;
-  margin-top: 20px;
-  position: fixed;
-  bottom: 0;
-  overflow: auto;
+  background-color: ${props => props.theme.colors.backgroundPrimary};
+  padding-bottom: 6rem;
+  padding-top: 1rem;
 `;
 
-const StylePlusIcon = {
-  fill: '#DCB480',
-  margin: '30px 15px 0px 90px'
-};
+const StylePlusIcon = styled(PlusIcon)`
+  fill: #dcb480;
+  margin: 40px 15px 0px 90px;
+`;
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -52,12 +49,17 @@ const HeadingContainer = styled.div`
   flex-direction: column;
 `;
 
+const Container = styled.div`
+  background-color: ${props => props.theme.colors.background};
+  overflow: auto;
+`;
+
 export default function JourneyList() {
   const [showForm, setShowForm] = useState(false);
   function handleForm(event) {
     event.preventDefault();
   }
-  function closeForm(event) {
+  function closeForm() {
     setShowForm(false);
   }
   const JourneyFormFn = ({ showForm }) => {
@@ -69,20 +71,26 @@ export default function JourneyList() {
 
   return (
     <>
-      <JourneysBackground>
-        <HeaderContainer>
-          <HeadingContainer>
-            <Heading>Deine Reisen</Heading>
-            <SubHeading>im Überblick</SubHeading>
-          </HeadingContainer>
-          <PlusIcon style={StylePlusIcon} onClick={() => setShowForm(true)} />
-        </HeaderContainer>
-        <WaveIcon style={StyleWaveIcon} />
-      </JourneysBackground>
-      <CardContainer>
-        <JourneyCard></JourneyCard>
-      </CardContainer>
-      <JourneyFormFn showForm={showForm} />
+      <Container>
+        <JourneysBackground>
+          <HeaderContainer>
+            <HeadingContainer>
+              <Heading>Deine Reisen</Heading>
+              <SubHeading>im Überblick</SubHeading>
+            </HeadingContainer>
+            <StylePlusIcon onClick={() => setShowForm(true)} />
+          </HeaderContainer>
+          <StyleWaveIcon />
+        </JourneysBackground>
+        <CardContainer>
+          <JourneyCard></JourneyCard>
+        </CardContainer>
+        <JourneyFormFn showForm={showForm} />
+      </Container>
     </>
   );
 }
+
+JourneyList.propTypes = {
+  showForm: PropTypes.bool
+};

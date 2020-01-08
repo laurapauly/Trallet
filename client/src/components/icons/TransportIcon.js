@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../../themes/light.js';
+import light from '../../themes/light';
+import PropTypes from 'prop-types';
 
 export default function TransportIcon(props) {
   const Svg = styled.svg`
-    fill: ${light.colors.fontsecondary};
+    fill: ${light.colors.fontSecondary};
     width: ${props.size}px;
     height: ${props.size}px;
   `;
@@ -15,3 +16,7 @@ export default function TransportIcon(props) {
     </Svg>
   );
 }
+
+TransportIcon.propTypes = {
+  size: PropTypes.number
+};

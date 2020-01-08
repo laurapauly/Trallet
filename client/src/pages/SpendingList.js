@@ -1,22 +1,23 @@
 import React from 'react';
-import WaveIcon from '../components/icons/wave.js';
+import WaveIcon from '../components/icons/WaveIcon';
 import styled from '@emotion/styled';
-import NavBarFooter from '../components/NavBarFooter.js';
-import FilterIcon from '../components/icons/filter.js';
-import SpendingCard from '../components/SpendingCard.js';
-import FilterForm from '../components/Forms/FilterForm.js';
+import NavBarFooter from '../components/NavBarFooter';
+import FilterIcon from '../components/icons/FilterIcon';
+import SpendingCard from '../components/SpendingCard';
+import FilterForm from '../components/Forms/FilterForm';
 import { useState } from 'react';
-import GroupSpending from '../lib/GroupSpendings.js';
+import groupSpendings from '../lib/groupSpendings';
+import PropTypes from 'prop-types';
 
 const SpendingsBackground = styled.header`
   width: 100%;
   padding-bottom: 6rem;
   position: relative;
 `;
-const StyleWaveIcon = {
-  position: 'absolute',
-  bottom: '0'
-};
+const StyleWaveIcon = styled(WaveIcon)`
+  position: absolute;
+  bottom: 0;
+`;
 
 const HeadingContainer = styled.div`
   display: flex;
@@ -25,23 +26,24 @@ const HeadingContainer = styled.div`
 
 const Heading = styled.h1`
   margin: 40px 0px 0px 30px;
-  color: ${props => props.theme.colors.fontprimary};
+  color: ${props => props.theme.colors.fontPrimary};
 `;
 
 const SubHeading = styled.h5`
-  margin: 10px 0px 10px 30px;
-  color: ${props => props.theme.colors.fontprimary};
+  margin: 0px 0px 0px 30px;
+  color: ${props => props.theme.colors.fontPrimary};
 `;
 
 const Destination = styled.p`
-  color: ${props => props.theme.colors.fontprimary};
+  color: ${props => props.theme.colors.fontPrimary};
   margin: 40px 0px 0px 30px;
 `;
 
 const ContentContainer = styled.div`
   width: 100%;
-  background-color: ${props => props.theme.colors.backgroundprimary};
+  background-color: ${props => props.theme.colors.backgroundPrimary};
   padding-bottom: 6rem;
+  min-height: 56vh;
 `;
 
 const TitleContainer = styled.div`
@@ -50,13 +52,13 @@ const TitleContainer = styled.div`
 
 const ContentTitle = styled.h5`
   font-size: 14px;
-  color: ${props => props.theme.colors.fontcolor};
+  color: ${props => props.theme.colors.fontColor};
   margin: 30px 0px 0px 30px;
 `;
 
-const StyleIcon = {
-  margin: '30px 0px 0px 200px'
-};
+const StyleFilterIcon = styled(FilterIcon)`
+  margin: 30px 0px 0px 227px;
+`;
 
 const Container = styled.div`
   background-color: ${props => props.theme.colors.background};
@@ -71,27 +73,39 @@ const FilterButton = styled.button`
   height: 30px;
 `;
 
-export default function SpendingList() {
-  const [spendingItems, setSpendingItems] = useState({});
-  async function getSpendingItems() {
-    const response = await fetch('http://localhost:4040/items/1/spendings');
-    const newSpending = await response.json();
-    const transformedSpendings = GroupSpending(newSpending);
-    setSpendingItems(transformedSpendings);
-  }
+export default function SpendingList(props) {
+  const {
+    match: {
+      params: { journeyId }
+    }
+  } = props;
+
+  const [spendingItems, setSpendingItems] = useState([]);
+  const [journey, setJourney] = useState({});
 
   React.useEffect(() => {
+    async function getSpendingItems() {
+      const response = await fetch(`http://localhost:4040/journeys/${journeyId}/spendings`);
+      const newSpending = await response.json();
+      const transformedSpendings = groupSpendings(newSpending);
+      setSpendingItems(transformedSpendings);
+
+      const r = await fetch(`http://localhost:4040/journeys/${journeyId}`);
+      const j = await r.json();
+      setJourney(j);
+    }
+
     getSpendingItems();
-  }, []);
+  }, [journeyId]);
 
   const [showFilter, setShowFilter] = useState(false);
   function handleFilter(event) {
     event.preventDefault();
-    console.log(event);
   }
-  function closeFilter(event) {
+  function closeFilter() {
     setShowFilter(false);
   }
+
   const FilterFormFn = ({ showFilter }) => {
     if (!showFilter) {
       return null;
@@ -104,28 +118,33 @@ export default function SpendingList() {
     <>
       <Container>
         <SpendingsBackground>
-          <Destination>Südostasien</Destination>
+          <Destination>{journey.title}</Destination>
           <HeadingContainer>
             <Heading>1980 €</Heading>
             <SubHeading>Verfügbar</SubHeading>
           </HeadingContainer>
-          <WaveIcon style={StyleWaveIcon} />
+          <StyleWaveIcon />
         </SpendingsBackground>
         <ContentContainer>
           <TitleContainer>
             <ContentTitle>Ausgaben</ContentTitle>
             <FilterButton onClick={() => setShowFilter(true)}>
-              <FilterIcon style={StyleIcon} />
+              <StyleFilterIcon />
             </FilterButton>
           </TitleContainer>
-
           {Object.keys(spendingItems).map(date => {
             return <SpendingCard spendings={spendingItems[date]} key={date} date={date} />;
           })}
         </ContentContainer>
         <FilterFormFn showFilter={showFilter} />
-        <NavBarFooter></NavBarFooter>
+        <NavBarFooter journeyId={journeyId}></NavBarFooter>
       </Container>
     </>
   );
 }
+
+SpendingList.propTypes = {
+  journeyId: PropTypes.string,
+  showFilter: PropTypes.bool,
+  match: PropTypes.object
+};
