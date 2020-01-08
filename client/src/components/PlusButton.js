@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light.js';
-import PlusIcon from './icons/plus.js';
+import light from '../themes/light';
+import PlusIcon from './icons/PlusIcon';
 import { useState } from 'react';
 import AddNewSpending from './Forms/AddNewSpending';
+import PropTypes from 'prop-types';
 
 const PlusButton = styled.button`
   width: 50px;
@@ -20,7 +21,7 @@ const PlusButton = styled.button`
 const ButtonBackground = styled.div`
   width: 70px;
   height: 70px;
-  background-color: ${light.colors.backgroundprimary};
+  background-color: ${light.colors.backgroundPrimary};
   border-radius: 50%;
   outline: none;
   display: flex;
@@ -29,13 +30,13 @@ const ButtonBackground = styled.div`
   margin-bottom: 40px;
 `;
 
-export default function Add() {
+export default function Add({ journeyId }) {
   const [showForm, setShowForm] = useState(false);
   function handleForm(event) {
     event.preventDefault();
     console.log(event);
   }
-  function closeForm(event) {
+  function closeForm() {
     setShowForm(false);
   }
   const FormFunction = ({ showForm }) => {
@@ -43,7 +44,9 @@ export default function Add() {
       return null;
     }
 
-    return <AddNewSpending handleClick={handleForm} handleClose={closeForm} />;
+    return (
+      <AddNewSpending handleClick={handleForm} handleClose={closeForm} journeyId={journeyId} />
+    );
   };
   return (
     <>
@@ -56,3 +59,8 @@ export default function Add() {
     </>
   );
 }
+
+Add.propTypes = {
+  journeyId: PropTypes.string,
+  showForm: PropTypes.bool
+};
