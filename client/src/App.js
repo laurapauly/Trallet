@@ -32,9 +32,7 @@ export default function App() {
             <Route exact path="/journeys">
               <JourneyList />
             </Route>
-            <Route exact path="/statistics">
-              <StatisticsList />
-            </Route>
+            <Route exact path="/statistics/:journeyId" component={StatisticsList}></Route>
             <Route exact path="/map">
               <Map />
               <NavBarFooter></NavBarFooter>

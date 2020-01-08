@@ -74,11 +74,7 @@ const FilterButton = styled.button`
 `;
 
 export default function SpendingList(props) {
-  const {
-    match: {
-      params: { journeyId }
-    }
-  } = props;
+  const journeyId = props.match.params.journeyId;
 
   const [spendingItems, setSpendingItems] = useState([]);
   const [journey, setJourney] = useState({});
