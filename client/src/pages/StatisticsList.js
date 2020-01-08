@@ -78,11 +78,7 @@ const ContentField = styled.div`
 `;
 
 export default function StatisticsList(props) {
-  const {
-    match: {
-      params: { journeyId }
-    }
-  } = props;
+  const journeyId = props.match.params.journeyId;
   const [journeyDetails, setJourneyDetails] = useState({});
 
   React.useEffect(() => {
