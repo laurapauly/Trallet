@@ -53,8 +53,6 @@ export default function NavBarFooter({ journeyId }) {
     return `/journeys/${id}`;
   };
 
-  console.log(location.pathname);
-
   return (
     <Footer>
       <Wrapper>
