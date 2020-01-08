@@ -90,9 +90,9 @@ export default function SpendingList(props) {
       const transformedSpendings = groupSpendings(newSpending);
       setSpendingItems(transformedSpendings);
 
-      const r = await fetch(`http://localhost:4040/journeys/${journeyId}`);
-      const j = await r.json();
-      setJourney(j);
+      const result = await fetch(`http://localhost:4040/journeys/${journeyId}`);
+      const newjourney = await result.json();
+      setJourney(newjourney);
     }
 
     getSpendingItems();
@@ -120,7 +120,7 @@ export default function SpendingList(props) {
         <SpendingsBackground>
           <Destination>{journey.title}</Destination>
           <HeadingContainer>
-            <Heading>1980 €</Heading>
+            <Heading>{journey.budget}</Heading>
             <SubHeading>Verfügbar</SubHeading>
           </HeadingContainer>
           <StyleWaveIcon />

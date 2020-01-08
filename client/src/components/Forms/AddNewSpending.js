@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import InputFieldSmall from '../InputFieldSmall';
-import CloseIcon from '../icons/close';
+import CloseIcon from '../icons/CloseIcon';
 import SubmitButton from './SubmitButton';
 import InputField from '../InputField';
 import { useState } from 'react';
 import FormItem from './FormItem';
 import IconSelect from './IconSelect';
-import categories from '../Categories';
+import categories from '../categories';
 import FormContainer from './FormContainer';
 import FormElement from './FormElement';
 import FormHeading from './FormHeading';
 import FormContentContainer from './FormContentContainer';
+import PropTypes from 'prop-types';
 
 const CategoryContainer = styled.div`
   display: flex;
@@ -21,19 +22,19 @@ const CategoryContainer = styled.div`
   margin-top: -20px;
 `;
 
-const styleFormItem = {
-  flex: '0 0 48%'
-};
+const StyleFormItem = styled(FormItem)`
+  flex: 0 0 48%;
+`;
 
-export default function AddNewSpending({ handleClick, handleClose, value }) {
+export default function AddNewSpending({ handleClose, journeyId }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(null);
   const [date, setDate] = useState('');
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('');
 
-  async function handleSubmit(event) {
-    await fetch('http://localhost:4040/items/1/spendings', {
+  async function handleSubmit() {
+    await fetch(`http://localhost:4040/journeys/${journeyId}/spendings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -66,21 +67,22 @@ export default function AddNewSpending({ handleClick, handleClose, value }) {
           ></InputField>
         </FormItem>
         <FormContentContainer>
-          <FormItem label="Wert" style={styleFormItem}>
+          <StyleFormItem label="Wert">
             <InputFieldSmall
               required
               placeholder="Euro"
               type="number"
+              step="0.01"
               onChange={event => setAmount(event.target.value)}
             ></InputFieldSmall>
-          </FormItem>
-          <FormItem label="Datum" style={styleFormItem}>
+          </StyleFormItem>
+          <StyleFormItem label="Datum">
             <InputFieldSmall
               required
               type="date"
               onChange={event => setDate(event.target.value)}
             ></InputFieldSmall>
-          </FormItem>
+          </StyleFormItem>
         </FormContentContainer>
         <FormItem label="Ort">
           <InputField
@@ -98,3 +100,7 @@ export default function AddNewSpending({ handleClick, handleClose, value }) {
     </FormContainer>
   );
 }
+AddNewSpending.propTypes = {
+  handleClose: PropTypes.func,
+  journeyId: PropTypes.string
+};
