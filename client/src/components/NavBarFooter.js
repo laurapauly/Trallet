@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import UmbrellaIcon from './icons/umbrella.js';
-import HomeIcon from './icons/home.js';
-import ChartIcon from './icons/chart.js';
-import MapIcon from './icons/map.js';
+import UmbrellaIcon from './icons/UmbrellaIcon';
+import HomeIcon from './icons/HomeIcon';
+import ChartIcon from './icons/ChartIcon';
+import MapIcon from './icons/MapIcon';
 import Add from './PlusButton';
+import PropTypes from 'prop-types';
 
 import { useLocation, Link } from 'react-router-dom';
 
@@ -40,19 +41,26 @@ const Highlight = styled.div`
   width: 30px;
   height: 2px;
   background-color: ${props =>
-    props.active ? props.theme.colors.fontprimary : props.theme.colors.basic};
+    props.active ? props.theme.colors.fontPrimary : props.theme.colors.basic};
   position: absolute;
   top: 0;
 `;
 
-export default function NavBarFooter() {
+export default function NavBarFooter({ journeyId }) {
   const location = useLocation();
+
+  const link = function(id) {
+    return `/journeys/${id}`;
+  };
+
+  console.log(location.pathname);
+
   return (
     <Footer>
       <Wrapper>
-        <Highlight active={location.pathname === '/'} />
-        <NavButton to="/">
-          <HomeIcon to="/" active={location.pathname === '/'} />
+        <Highlight active={location.pathname === link(journeyId)} />
+        <NavButton to={link(journeyId)}>
+          <HomeIcon to={link(journeyId)} active={location.pathname === link(journeyId)} />
         </NavButton>
       </Wrapper>
       <Wrapper>
@@ -61,7 +69,7 @@ export default function NavBarFooter() {
           <UmbrellaIcon to="/journeys" active={location.pathname === '/journeys'} />
         </NavButton>
       </Wrapper>
-      <Add />
+      <Add journeyId={journeyId} />
       <Wrapper>
         <Highlight active={location.pathname === '/statistics'} />
         <NavButton to="/statistics">
@@ -77,3 +85,6 @@ export default function NavBarFooter() {
     </Footer>
   );
 }
+NavBarFooter.propTypes = {
+  journeyId: PropTypes.string
+};
