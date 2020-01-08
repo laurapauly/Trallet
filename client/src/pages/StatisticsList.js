@@ -45,7 +45,7 @@ const ContentContainer = styled.div`
 `;
 
 const StyleFirstInputFieldSmall = styled(InputFieldSmall)`
-  background-color: white;
+  background-color: white;
   margin-left: 0;
 `;
 const StyleSecondInputFieldSmall = styled(InputFieldSmall)`
