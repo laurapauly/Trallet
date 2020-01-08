@@ -7,6 +7,7 @@ import SpendingCard from '../components/SpendingCard';
 import FilterForm from '../components/Forms/FilterForm';
 import { useState } from 'react';
 import groupSpendings from '../lib/groupSpendings';
+import PropTypes from 'prop-types';
 
 const SpendingsBackground = styled.header`
   width: 100%;
@@ -42,6 +43,7 @@ const ContentContainer = styled.div`
   width: 100%;
   background-color: ${props => props.theme.colors.backgroundPrimary};
   padding-bottom: 6rem;
+  min-height: 56vh;
 `;
 
 const TitleContainer = styled.div`
@@ -78,25 +80,32 @@ export default function SpendingList(props) {
     }
   } = props;
 
-  const [spendingItems, setSpendingItems] = useState({});
-  async function getSpendingItems() {
-    const response = await fetch(`http://localhost:4040/journeys/${journeyId}/spendings`);
-    const newSpending = await response.json();
-    const transformedSpendings = groupSpendings(newSpending);
-    setSpendingItems(transformedSpendings);
-  }
+  const [spendingItems, setSpendingItems] = useState([]);
+  const [journey, setJourney] = useState({});
 
   React.useEffect(() => {
+    async function getSpendingItems() {
+      const response = await fetch(`http://localhost:4040/journeys/${journeyId}/spendings`);
+      const newSpending = await response.json();
+      const transformedSpendings = groupSpendings(newSpending);
+      setSpendingItems(transformedSpendings);
+
+      const r = await fetch(`http://localhost:4040/journeys/${journeyId}`);
+      const j = await r.json();
+      setJourney(j);
+    }
+
     getSpendingItems();
-  }, []);
+  }, [journeyId]);
 
   const [showFilter, setShowFilter] = useState(false);
   function handleFilter(event) {
     event.preventDefault();
   }
-  function closeFilter(event) {
+  function closeFilter() {
     setShowFilter(false);
   }
+
   const FilterFormFn = ({ showFilter }) => {
     if (!showFilter) {
       return null;
@@ -109,7 +118,7 @@ export default function SpendingList(props) {
     <>
       <Container>
         <SpendingsBackground>
-          <Destination>Südostasien</Destination>
+          <Destination>{journey.title}</Destination>
           <HeadingContainer>
             <Heading>1980 €</Heading>
             <SubHeading>Verfügbar</SubHeading>
@@ -133,3 +142,9 @@ export default function SpendingList(props) {
     </>
   );
 }
+
+SpendingList.propTypes = {
+  journeyId: PropTypes.string,
+  showFilter: PropTypes.bool,
+  match: PropTypes.object
+};

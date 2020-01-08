@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import light from '../themes/light';
 import SpendingItem from './SpendingItem';
+import PropTypes from 'prop-types';
 
 const SpendingCardElement = styled.div`
   box-shadow: 0pt 3pt 20pt #00000029;
@@ -58,3 +59,10 @@ export default function SpendingCard({ spendings, date }) {
     </Container>
   );
 }
+
+SpendingCard.propTypes = {
+  spendings: PropTypes.array,
+  date: PropTypes.string,
+  index: PropTypes.number,
+  length: PropTypes.number
+};

@@ -1,6 +1,6 @@
 import React from 'react';
 import InputFieldSmall from '../InputFieldSmall';
-import CloseIcon from '../icons/close';
+import CloseIcon from '../icons/CloseIcon';
 import SubmitButton from './SubmitButton';
 import InputField from '../InputField';
 import { useState } from 'react';
@@ -9,6 +9,7 @@ import FormContainer from './FormContainer';
 import FormElement from './FormElement';
 import FormHeading from './FormHeading';
 import FormContentContainer from './FormContentContainer';
+import PropTypes from 'prop-types';
 
 const styleFormItem = {
   flex: '0 0 48%'
@@ -17,14 +18,14 @@ const styleFormItem = {
 const styleFormElement = {
   height: '380px'
 };
-export default function AddNewJourney({ handleClick, onClose }) {
+export default function AddNewJourney({ onClose }) {
   const [title, setTitle] = useState('');
   const [budget, setBudget] = useState(null);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
-  async function handleSubmit(event) {
-    await fetch('http://localhost:4000/items', {
+  async function handleSubmit() {
+    await fetch('http://localhost:4040/journeys', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -57,9 +58,10 @@ export default function AddNewJourney({ handleClick, onClose }) {
         </FormItem>
         <FormItem label="Reisebudget">
           <InputField
-            tpye="number"
             required
             placeholder="z.B. 500€"
+            type="number"
+            step="0.01"
             onChange={event => setBudget(event.target.value)}
           ></InputField>
         </FormItem>
@@ -84,3 +86,7 @@ export default function AddNewJourney({ handleClick, onClose }) {
     </FormContainer>
   );
 }
+
+AddNewJourney.propTypes = {
+  onClose: PropTypes.func
+};

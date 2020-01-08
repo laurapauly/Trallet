@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Div = styled.div``;
 
@@ -16,3 +17,9 @@ export default function FormItem({ label, children, style }) {
     </Div>
   );
 }
+
+FormItem.propTypes = {
+  children: PropTypes.element,
+  style: PropTypes.object,
+  label: PropTypes.string
+};

@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 import WaveIcon from '../components/icons/WaveIcon';
 import JourneyCard from '../components/JourneyCard';
 import PlusIcon from '../components/icons/PlusIcon';
-import AddNewSpending from '../components/Forms/AddNewSpending';
+import AddNewJourney from '../components/Forms/AddNewJourney';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const JourneysBackground = styled.header`
   padding-bottom: 6rem;
@@ -35,7 +36,7 @@ const CardContainer = styled.div`
 `;
 
 const StylePlusIcon = styled(PlusIcon)`
-  fill: #dcb480;
+  fill: #dcb480;
   margin: 40px 15px 0px 90px;
 `;
 
@@ -58,14 +59,14 @@ export default function JourneyList() {
   function handleForm(event) {
     event.preventDefault();
   }
-  function closeForm(event) {
+  function closeForm() {
     setShowForm(false);
   }
   const JourneyFormFn = ({ showForm }) => {
     if (!showForm) {
       return null;
     }
-    return <AddNewSpending handleClick={handleForm} onClose={closeForm} />;
+    return <AddNewJourney handleClick={handleForm} onClose={closeForm} />;
   };
 
   return (
@@ -89,3 +90,7 @@ export default function JourneyList() {
     </>
   );
 }
+
+JourneyList.propTypes = {
+  showForm: PropTypes.bool
+};

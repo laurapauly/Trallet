@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import light from '../../themes/light.js';
+import PropTypes from 'prop-types';
 
 export default function SmileyIcon(props) {
   const Svg = styled.svg`
@@ -15,3 +16,7 @@ export default function SmileyIcon(props) {
     </Svg>
   );
 }
+
+SmileyIcon.propTypes = {
+  size: PropTypes.number
+};
