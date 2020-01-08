@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import WaveIcon from '../components/icons/WaveIcon';
-import InputFieldSmall from '../components/InputFieldSmall';
-import NavBarFooterWithoutAdd from '../components/NavBarFooterWithoutAdd';
+import NavBarFooter from '../components/NavBarFooter';
+import FormItem from '../components/Forms/FormItem';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const StatisticsBackground = styled.div`
   background-color: ${props => props.theme.colors.background};
@@ -42,16 +44,7 @@ const ContentContainer = styled.div`
   width: 100%;
   background-color: ${props => props.theme.colors.backgroundPrimary};
   padding-bottom: 6rem;
-`;
-
-const StyleFirstInputFieldSmall = styled(InputFieldSmall)`
-  background-color: white;
-  margin-left: 0;
-`;
-const StyleSecondInputFieldSmall = styled(InputFieldSmall)`
-  background-color: white;
-  margin-right: 0;
-  margin-left: 30px;
+  min-height: 60vh;
 `;
 
 const InputFieldContainer = styled.div`
@@ -59,27 +52,55 @@ const InputFieldContainer = styled.div`
   padding: 20px;
   display: flex;
   justify-content: space-around;
-`;
-
-const Title = styled.p`
-  all: unset;
-  margin-left: 5px;
-  font-size: 14px;
-  color: ${props => props.theme.colors.fontPrimary};
+  flex: 0 0 48%;
 `;
 
 const TitleandInput = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
-export default function StatisticsList() {
+const ContentField = styled.div`
+  width: 150px;
+  height: 35px;
+  background-color: ${props => props.theme.colors.basic};
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  color: ${props => props.theme.colors.action};
+  font-weight: bold;
+`;
+
+export default function StatisticsList(props) {
+  const {
+    match: {
+      params: { journeyId }
+    }
+  } = props;
+  const [journeyDetails, setJourneyDetails] = useState({});
+
+  React.useEffect(() => {
+    async function getJourneyDetails() {
+      const response = await fetch(`http://localhost:4040/journeys/${journeyId}`);
+      const newjourney = await response.json();
+      setJourneyDetails(newjourney);
+    }
+
+    getJourneyDetails();
+  }, [journeyId]);
+
   return (
     <>
       <StatisticsBackground>
         <Header>
           <HeaderContainer>
-            <Destination>Südostasien</Destination>
+            <Destination>{journeyDetails.title}</Destination>
             <Heading>Statistik</Heading>
           </HeaderContainer>
           <WaveIconStyled />
@@ -87,27 +108,33 @@ export default function StatisticsList() {
         <ContentContainer>
           <InputFieldContainer>
             <TitleandInput>
-              <Title>Budget</Title>
-              <StyleFirstInputFieldSmall placeholder="test" />
+              <FormItem label="Budget" />
+              <ContentField>{journeyDetails.budget}</ContentField>
             </TitleandInput>
             <TitleandInput>
-              <Title>Tagesbudget</Title>
-              <StyleSecondInputFieldSmall placeholder={'test'} />
+              <FormItem label="Tagesbudget" />
+              <ContentField />
             </TitleandInput>
           </InputFieldContainer>
           <InputFieldContainer>
             <TitleandInput>
-              <Title>Gesamtausgaben</Title>
-              <StyleFirstInputFieldSmall placeholder={'test'} />
+              <FormItem label="Gesamtausgaben" />
+              <ContentField />
             </TitleandInput>
             <TitleandInput>
-              <Title>Tagesdurchschnitt</Title>
-              <StyleSecondInputFieldSmall />
+              <FormItem label="Tagesdurchschnitt" />
+              <ContentField />
             </TitleandInput>
           </InputFieldContainer>
         </ContentContainer>
       </StatisticsBackground>
-      <NavBarFooterWithoutAdd></NavBarFooterWithoutAdd>
+      <NavBarFooter />
     </>
   );
 }
+
+StatisticsList.propTypes = {
+  journeyId: PropTypes.string,
+  showFilter: PropTypes.bool,
+  match: PropTypes.object
+};
