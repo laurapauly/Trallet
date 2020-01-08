@@ -53,6 +53,10 @@ export default function NavBarFooter({ journeyId }) {
     return `/journeys/${id}`;
   };
 
+  const statisticslink = function(id) {
+    return `/statistics/${id}`;
+  };
+
   return (
     <Footer>
       <Wrapper>
@@ -62,22 +66,26 @@ export default function NavBarFooter({ journeyId }) {
         </NavButton>
       </Wrapper>
       <Wrapper>
-        <Highlight active={location.pathname === '/journeys'} />
-        <NavButton to="/journeys">
-          <UmbrellaIcon to="/journeys" active={location.pathname === '/journeys'} />
+        <Highlight active={location.pathname === statisticslink(journeyId)} />
+        <NavButton to={statisticslink(journeyId)}>
+          <ChartIcon
+            to={statisticslink(journeyId)}
+            active={location.pathname === statisticslink(journeyId)}
+          />
         </NavButton>
       </Wrapper>
       <Add journeyId={journeyId} />
-      <Wrapper>
-        <Highlight active={location.pathname === '/statistics'} />
-        <NavButton to="/statistics">
-          <ChartIcon to="/statistics" active={location.pathname === '/statistics'} />
-        </NavButton>
-      </Wrapper>
+
       <Wrapper>
         <Highlight active={location.pathname === '/map'} />
         <NavButton to="/map">
           <MapIcon to="/map" active={location.pathname === '/map'} />
+        </NavButton>
+      </Wrapper>
+      <Wrapper>
+        <Highlight active={location.pathname === '/journeys'} />
+        <NavButton to="/journeys">
+          <UmbrellaIcon to="/journeys" active={location.pathname === '/journeys'} />
         </NavButton>
       </Wrapper>
     </Footer>
