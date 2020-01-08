@@ -33,7 +33,7 @@ const ContentContainer = styled.div`
   justify-content: center;
 `;
 
-const Destination = styled.p`
+const Destination = styled.div`
   all: unset;
   font-size: 16px;
   margin-top: 10px;
@@ -49,7 +49,7 @@ const DetailsContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-const Details = styled.p`
+const Details = styled.div`
   all: unset;
 
   font-size: 10pt;
@@ -57,7 +57,7 @@ const Details = styled.p`
   display: flex;
 `;
 
-const Highlight = styled.p`
+const Highlight = styled.div`
   all: unset;
   font-weight: bold;
   color: ${light.colors.action};
@@ -100,7 +100,7 @@ export default function JourneyCard() {
                   {item.startDate} - {item.endDate}
                 </Details>
                 <Details>
-                  <Highlight>{item.budget}</Highlight>
+                  <Highlight>{item.budget}€</Highlight>
                   verfügbar
                 </Details>
               </DetailsContainer>
