@@ -8,6 +8,7 @@ import FilterForm from '../components/Forms/FilterForm';
 import { useState } from 'react';
 import groupSpendings from '../lib/groupSpendings';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
 const SpendingsBackground = styled.header`
   width: 100%;
@@ -79,9 +80,21 @@ export default function SpendingList(props) {
   const [spendingItems, setSpendingItems] = useState([]);
   const [journey, setJourney] = useState({});
 
+  //Filterfunktion
+
+  let filter = useLocation().search;
+
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+
+  //Filterfunktion
+
   React.useEffect(() => {
     async function getSpendingItems() {
-      const response = await fetch(`http://localhost:4040/journeys/${journeyId}/spendings`);
+      const response = await fetch(
+        `http://localhost:4040/journeys/${journeyId}/spendings${filter}`
+      );
       const newSpending = await response.json();
       const transformedSpendings = groupSpendings(newSpending);
       setSpendingItems(transformedSpendings);
@@ -92,7 +105,7 @@ export default function SpendingList(props) {
     }
 
     getSpendingItems();
-  }, [journeyId]);
+  }, [journeyId, filter]);
 
   const [showFilter, setShowFilter] = useState(false);
   function handleFilter(event) {
@@ -107,9 +120,10 @@ export default function SpendingList(props) {
       return null;
     }
 
-    return <FilterForm handleClick={handleFilter} handleClose={closeFilter} />;
+    return <FilterForm handleClick={handleFilter} onClose={closeFilter} journeyId={journeyId} />;
   };
 
+  useQuery();
   return (
     <>
       <Container>

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import categories from '../categories';
+import PropTypes from 'prop-types';
 
 const Select = styled.select`
   width: 100%;
@@ -15,17 +17,19 @@ const Select = styled.select`
   margin-bottom: 10px;
 `;
 
-export default function SelectField() {
+export default function CategoriesSelectField({ onChange }) {
   return (
-    <Select className="ui dropdown">
-      <option>Essen</option>
-      <option>Transport</option>
-      <option>Flüge</option>
-      <option>Hotel</option>
-      <option>Party</option>
-      <option>Einkauf</option>
-      <option>Freizeit</option>
-      <option>Sonstiges</option>
+    <Select onChange={onChange}>
+      {categories.map(category => (
+        <option key={category.value} value={category.value}>
+          {category.title}
+        </option>
+      ))}
+      ;
     </Select>
   );
 }
+
+CategoriesSelectField.propTypes = {
+  onChange: PropTypes.func
+};
