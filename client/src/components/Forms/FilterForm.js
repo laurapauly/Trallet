@@ -61,7 +61,6 @@ export default function FilterForm({ onClose, journeyId }) {
   );
 }
 FilterForm.propTypes = {
-  handleClick: PropTypes.func,
   onClose: PropTypes.func,
   journeyId: PropTypes.string
 };
