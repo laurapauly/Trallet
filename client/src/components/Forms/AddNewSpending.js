@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InputFieldSmall from '../InputFieldSmall';
 import CloseIcon from '../icons/CloseIcon';
 import SubmitButton from './SubmitButton';
 import InputField from '../InputField';
@@ -68,20 +67,20 @@ export default function AddNewSpending({ handleClose, journeyId }) {
         </FormItem>
         <FormContentContainer>
           <StyleFormItem label="Wert">
-            <InputFieldSmall
+            <InputField
               required
               placeholder="Euro"
               type="number"
               step="0.01"
               onChange={event => setAmount(event.target.value)}
-            ></InputFieldSmall>
+            ></InputField>
           </StyleFormItem>
           <StyleFormItem label="Datum">
-            <InputFieldSmall
+            <InputField
               required
               type="date"
               onChange={event => setDate(event.target.value)}
-            ></InputFieldSmall>
+            ></InputField>
           </StyleFormItem>
         </FormContentContainer>
         <FormItem label="Ort">

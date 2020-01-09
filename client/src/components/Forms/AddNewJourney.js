@@ -1,5 +1,4 @@
 import React from 'react';
-import InputFieldSmall from '../InputFieldSmall';
 import CloseIcon from '../icons/CloseIcon';
 import SubmitButton from './SubmitButton';
 import InputField from '../InputField';
@@ -69,18 +68,18 @@ export default function AddNewJourney({ onClose }) {
         </FormItem>
         <FormContentContainer>
           <StyleFormItem label="Startdatum">
-            <InputFieldSmall
+            <InputField
               type="date"
               required
               onChange={event => setStartDate(event.target.value)}
-            ></InputFieldSmall>
+            ></InputField>
           </StyleFormItem>
           <StyleFormItem label="Enddatum">
-            <InputFieldSmall
+            <InputField
               type="date"
               required
               onChange={event => setEndDate(event.target.value)}
-            ></InputFieldSmall>
+            ></InputField>
           </StyleFormItem>
         </FormContentContainer>
         <SubmitButton>Speichern</SubmitButton>
