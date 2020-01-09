@@ -7,6 +7,7 @@ const Div = styled.div``;
 const Label = styled.div`
   font-size: 14px;
   margin-bottom: 5px;
+  color: ${props => props.theme.colors.fontSecondary};
 `;
 
 export default function FormItem({ label, children, style }) {
