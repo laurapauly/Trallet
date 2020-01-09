@@ -9,6 +9,7 @@ import SpendingList from './pages/SpendingList';
 import StatisticsList from './pages/StatisticsList';
 import Map from './pages/Map';
 import styled from '@emotion/styled';
+import Landing from './pages/Landing';
 
 const Container = styled.div`
   height: 100vh;
@@ -24,6 +25,9 @@ export default function App() {
       <Router>
         <Container>
           <Switch>
+            <Route exact path="/landing">
+              <Landing />
+            </Route>
             <Route exact path="/">
               {/* https://reacttraining.com/react-router/web/example/auth-workflow */}
               {/* <Landing /> */}
