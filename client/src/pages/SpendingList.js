@@ -1,5 +1,4 @@
 import React from 'react';
-import WaveIcon from '../components/icons/WaveIcon';
 import styled from '@emotion/styled';
 import NavBarFooter from '../components/NavBarFooter';
 import FilterIcon from '../components/icons/FilterIcon';
@@ -9,35 +8,14 @@ import { useState } from 'react';
 import groupSpendings from '../lib/groupSpendings';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-
-const SpendingsBackground = styled.header`
-  width: 100%;
-  padding-bottom: 6rem;
-  position: relative;
-`;
-const StyleWaveIcon = styled(WaveIcon)`
-  position: absolute;
-  bottom: 0;
-`;
+import Background from '../components/backgroundcomponents/Background';
+import PageHeading from '../components/backgroundcomponents/PageHeading';
+import PageSubheading from '../components/backgroundcomponents/PageSubheading';
+import PageDestination from '../components/backgroundcomponents/PageDestination';
 
 const HeadingContainer = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const Heading = styled.h1`
-  margin: 40px 0px 0px 30px;
-  color: ${props => props.theme.colors.fontPrimary};
-`;
-
-const SubHeading = styled.h5`
-  margin: 0px 0px 0px 30px;
-  color: ${props => props.theme.colors.fontPrimary};
-`;
-
-const Destination = styled.p`
-  color: ${props => props.theme.colors.fontPrimary};
-  margin: 40px 0px 0px 30px;
 `;
 
 const ContentContainer = styled.div`
@@ -127,14 +105,13 @@ export default function SpendingList(props) {
   return (
     <>
       <Container>
-        <SpendingsBackground>
-          <Destination>{journey.title}</Destination>
+        <Background>
+          <PageDestination label={journey.title} />
           <HeadingContainer>
-            <Heading>{journey.budget}</Heading>
-            <SubHeading>Verfügbar</SubHeading>
+            <PageHeading label={journey.budget} />
+            <PageSubheading label="Verfügbar" />
           </HeadingContainer>
-          <StyleWaveIcon />
-        </SpendingsBackground>
+        </Background>
         <ContentContainer>
           <TitleContainer>
             <ContentTitle>Ausgaben</ContentTitle>
@@ -147,7 +124,7 @@ export default function SpendingList(props) {
           })}
         </ContentContainer>
         <FilterFormFn showFilter={showFilter} />
-        <NavBarFooter journeyId={journeyId}></NavBarFooter>
+        <NavBarFooter journeyId={journeyId} />
       </Container>
     </>
   );

@@ -1,32 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import WaveIcon from '../components/icons/WaveIcon';
 import JourneyCard from '../components/JourneyCard';
 import PlusIcon from '../components/icons/PlusIcon';
 import AddNewJourney from '../components/Forms/AddNewJourney';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-
-const JourneysBackground = styled.header`
-  padding-bottom: 6rem;
-  width: 100%;
-  position: relative;
-`;
-
-const StyleWaveIcon = styled(WaveIcon)`
-  position: absolute;
-  bottom: 0;
-`;
-
-const Heading = styled.h1`
-  margin: 40px 0px 0px 30px;
-  color: ${props => props.theme.colors.fontPrimary};
-`;
-
-const SubHeading = styled.h5`
-  margin: 10px 0px 10px 30px;
-  color: ${props => props.theme.colors.fontPrimary};
-`;
+import Background from '../components/backgroundcomponents/Background';
+import PageHeading from '../components/backgroundcomponents/PageHeading';
+import PageSubheading from '../components/backgroundcomponents/PageSubheading';
 
 const CardContainer = styled.div`
   width: 100%;
@@ -72,18 +53,17 @@ export default function JourneyList() {
   return (
     <>
       <Container>
-        <JourneysBackground>
+        <Background>
           <HeaderContainer>
             <HeadingContainer>
-              <Heading>Deine Reisen</Heading>
-              <SubHeading>im Überblick</SubHeading>
+              <PageHeading label="Deine Reisen" />
+              <PageSubheading label="im Überblick" />
             </HeadingContainer>
             <StylePlusIcon onClick={() => setShowForm(true)} />
           </HeaderContainer>
-          <StyleWaveIcon />
-        </JourneysBackground>
+        </Background>
         <CardContainer>
-          <JourneyCard></JourneyCard>
+          <JourneyCard />
         </CardContainer>
         <JourneyFormFn showForm={showForm} />
       </Container>

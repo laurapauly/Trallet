@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import WaveIcon from '../components/icons/WaveIcon';
 import NavBarFooter from '../components/NavBarFooter';
 import FormItem from '../components/Forms/FormItem';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import Background from '../components/backgroundcomponents/Background';
+import PageHeading from '../components/backgroundcomponents/PageHeading';
+import PageDestination from '../components/backgroundcomponents/PageDestination';
 
-const StatisticsBackground = styled.div`
+const StatisticsContainer = styled.div`
   background-color: ${props => props.theme.colors.background};
   height: 35%;
   width: 100%;
@@ -14,30 +16,9 @@ const StatisticsBackground = styled.div`
   top: 0;
 `;
 
-const Header = styled.div`
-  width: 100%;
-  padding-bottom: 6rem;
-  position: relative;
-`;
-
-const WaveIconStyled = styled(WaveIcon)`
-  position: absolute;
-  bottom: 0;
-`;
-
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const Heading = styled.h1`
-  margin: 25px 0px 0px 40px;
-  color: ${props => props.theme.colors.fontPrimary};
-`;
-
-const Destination = styled.p`
-  color: ${props => props.theme.colors.fontPrimary};
-  margin: 40px 0px 0px 40px;
 `;
 
 const ContentContainer = styled.div`
@@ -93,14 +74,13 @@ export default function StatisticsList(props) {
 
   return (
     <>
-      <StatisticsBackground>
-        <Header>
+      <StatisticsContainer>
+        <Background>
           <HeaderContainer>
-            <Destination>{journeyDetails.title}</Destination>
-            <Heading>Statistik</Heading>
+            <PageDestination label={journeyDetails.title}></PageDestination>
+            <PageHeading label="Statistik" />
           </HeaderContainer>
-          <WaveIconStyled />
-        </Header>
+        </Background>
         <ContentContainer>
           <InputFieldContainer>
             <TitleandInput>
@@ -123,7 +103,7 @@ export default function StatisticsList(props) {
             </TitleandInput>
           </InputFieldContainer>
         </ContentContainer>
-      </StatisticsBackground>
+      </StatisticsContainer>
       <NavBarFooter />
     </>
   );
