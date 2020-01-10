@@ -28,18 +28,15 @@ export default function App() {
             <Route exact path="/landing">
               <Landing />
             </Route>
-            <Route exact path="/">
-              {/* https://reacttraining.com/react-router/web/example/auth-workflow */}
-              {/* <Landing /> */}
-            </Route>
-            <Route exact path="/journeys/:journeyId" component={SpendingList} />
+            <Route exact path="/" />
+            <Route path="/journeys/:journeyId" component={SpendingList} />
             <Route exact path="/journeys">
               <JourneyList />
             </Route>
-            <Route exact path="/statistics/:journeyId" component={StatisticsList}></Route>
+            <Route exact path="/statistics/:journeyId" component={StatisticsList} />
             <Route exact path="/map">
               <Map />
-              <NavBarFooter></NavBarFooter>
+              <NavBarFooter />
             </Route>
           </Switch>
         </Container>
