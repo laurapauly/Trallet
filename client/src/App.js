@@ -9,6 +9,7 @@ import SpendingList from './pages/SpendingList';
 import StatisticsList from './pages/StatisticsList';
 import Map from './pages/Map';
 import styled from '@emotion/styled';
+import Landing from './pages/Landing';
 
 const Container = styled.div`
   height: 100vh;
@@ -24,18 +25,18 @@ export default function App() {
       <Router>
         <Container>
           <Switch>
-            <Route exact path="/">
-              {/* https://reacttraining.com/react-router/web/example/auth-workflow */}
-              {/* <Landing /> */}
+            <Route exact path="/landing">
+              <Landing />
             </Route>
-            <Route exact path="/journeys/:journeyId" component={SpendingList} />
+            <Route exact path="/" />
+            <Route path="/journeys/:journeyId" component={SpendingList} />
             <Route exact path="/journeys">
               <JourneyList />
             </Route>
-            <Route exact path="/statistics/:journeyId" component={StatisticsList}></Route>
+            <Route exact path="/statistics/:journeyId" component={StatisticsList} />
             <Route exact path="/map">
               <Map />
-              <NavBarFooter></NavBarFooter>
+              <NavBarFooter />
             </Route>
           </Switch>
         </Container>
