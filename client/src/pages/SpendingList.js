@@ -12,6 +12,8 @@ import Background from '../components/backgroundcomponents/Background';
 import PageHeading from '../components/backgroundcomponents/PageHeading';
 import PageSubheading from '../components/backgroundcomponents/PageSubheading';
 import PageDestination from '../components/backgroundcomponents/PageDestination';
+import { sumOfSpendings } from '../lib/sumOfSpendings';
+import { getAvailableBudget } from '../lib/getAvailableBudget';
 
 const HeadingContainer = styled.div`
   display: flex;
@@ -108,7 +110,9 @@ export default function SpendingList(props) {
         <Background>
           <PageDestination label={journey.title} />
           <HeadingContainer>
-            <PageHeading label={journey.budget} />
+            <PageHeading
+              label={getAvailableBudget(sumOfSpendings(spendingItems), journey.budget) + ' €'}
+            />
             <PageSubheading label="Verfügbar" />
           </HeadingContainer>
         </Background>
