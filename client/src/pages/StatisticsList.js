@@ -7,6 +7,10 @@ import PropTypes from 'prop-types';
 import Background from '../components/backgroundcomponents/Background';
 import PageHeading from '../components/backgroundcomponents/PageHeading';
 import PageDestination from '../components/backgroundcomponents/PageDestination';
+import { sumOfSpendings } from '../lib/sumOfSpendings';
+import groupSpendings from '../lib/groupSpendings';
+import { calculateDifferenceInDays } from '../lib/calculateDifferenceInDays';
+import { getAveragePerDay } from '../lib/getAveragePerDay';
 
 const StatisticsContainer = styled.div`
   background-color: ${props => props.theme.colors.background};
@@ -61,15 +65,21 @@ const ContentField = styled.div`
 export default function StatisticsList(props) {
   const journeyId = props.match.params.journeyId;
   const [journeyDetails, setJourneyDetails] = useState({});
+  const [spendingItems, setSpendingItems] = useState({});
 
   React.useEffect(() => {
-    async function getJourneyDetails() {
-      const response = await fetch(`http://localhost:4040/journeys/${journeyId}`);
-      const newjourney = await response.json();
+    async function getSpendingItems() {
+      const response = await fetch(`http://localhost:4040/journeys/${journeyId}/spendings`);
+      const newSpending = await response.json();
+      const transformedSpendings = groupSpendings(newSpending);
+      setSpendingItems(transformedSpendings);
+
+      const result = await fetch(`http://localhost:4040/journeys/${journeyId}`);
+      const newjourney = await result.json();
       setJourneyDetails(newjourney);
     }
 
-    getJourneyDetails();
+    getSpendingItems();
   }, [journeyId]);
 
   return (
@@ -85,26 +95,39 @@ export default function StatisticsList(props) {
           <InputFieldContainer>
             <TitleandInput>
               <FormItem label="Budget" />
-              <ContentField>{journeyDetails.budget}</ContentField>
+              <ContentField>{journeyDetails.budget} €</ContentField>
             </TitleandInput>
             <TitleandInput>
               <FormItem label="Tagesbudget" />
-              <ContentField />
+              <ContentField>
+                {getAveragePerDay(
+                  journeyDetails.budget,
+                  calculateDifferenceInDays(
+                    new Date(journeyDetails.startDate),
+                    new Date(journeyDetails.endDate)
+                  )
+                ) + ' €'}
+              </ContentField>
             </TitleandInput>
           </InputFieldContainer>
           <InputFieldContainer>
             <TitleandInput>
               <FormItem label="Gesamtausgaben" />
-              <ContentField />
+              <ContentField>{sumOfSpendings(spendingItems) + ' €'}</ContentField>
             </TitleandInput>
             <TitleandInput>
               <FormItem label="Tagesdurchschnitt" />
-              <ContentField />
+              <ContentField>
+                {getAveragePerDay(
+                  sumOfSpendings(spendingItems),
+                  calculateDifferenceInDays(new Date(journeyDetails.startDate), new Date())
+                ) + ' €'}
+              </ContentField>
             </TitleandInput>
           </InputFieldContainer>
         </ContentContainer>
       </StatisticsContainer>
-      <NavBarFooter />
+      <NavBarFooter journeyId={journeyId} />
     </>
   );
 }
