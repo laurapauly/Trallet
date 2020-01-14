@@ -15,7 +15,7 @@ const SpendingCardElement = styled.div`
   margin: 10px 20px 10px 20px;
 `;
 
-const DateDiv = styled.div`
+const DateContainer = styled.div`
   font-size: 14px;
   margin-left: 30px;
   color: ${props => props.theme.colors.fontColor};
@@ -55,7 +55,7 @@ export default function SpendingCard({ spendings, date }) {
   }
   return (
     <Container>
-      <DateDiv>{formatDate(date)}</DateDiv>
+      <DateContainer>{formatDate(date)}</DateContainer>
       <SpendingCardElement>
         {spendings.map((spending, index) => {
           return (
