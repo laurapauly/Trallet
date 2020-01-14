@@ -1,4 +1,4 @@
-# Trallet
+# Trallet  <img src=".github/Tralletlogo+Name.png" alt="trallet logo" align="right" width="150" />
 Your Travel-Budget-App
 
 Hey, nice to meet you! I'm Trallet, your wallet on travels. Use me on your next journey to always have an overview over your budget, see the sum of your spendings and the average per day. You can add spendings and filter for them by category and/or date. 
