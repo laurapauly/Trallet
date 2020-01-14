@@ -84,20 +84,29 @@ export default function JourneyCard() {
     return `/journeys/${id}`;
   };
 
+  function formatDate(input) {
+    const newDate = new Date(input);
+    return newDate.toLocaleDateString('de-DE', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
+  }
+
   return (
     <div>
-      {journeyItems.map(item => (
+      {journeyItems.map((item, index) => (
         <CardContainer key={item.id}>
           <CardElement to={link(item.id)}>
             <Picture
-              src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+              src={`https://source.unsplash.com/100x65/?beach&i=${index}`}
               alt="Journey Picture"
             ></Picture>
             <ContentContainer>
               <Destination>{item.title}</Destination>
               <DetailsContainer>
                 <Details>
-                  {item.startDate} - {item.endDate}
+                  {formatDate(item.startDate)} - {formatDate(item.endDate)}
                 </Details>
                 <Details>
                   <Highlight>{item.budget}€</Highlight>
