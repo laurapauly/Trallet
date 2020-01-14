@@ -15,7 +15,7 @@ const SpendingCardElement = styled.div`
   margin: 10px 20px 10px 20px;
 `;
 
-const Date = styled.div`
+const DateContainer = styled.div`
   font-size: 14px;
   margin-left: 30px;
   color: ${props => props.theme.colors.fontColor};
@@ -43,9 +43,19 @@ export default function SpendingCard({ spendings, date }) {
 
     return null;
   }
+
+  function formatDate(input) {
+    const newDate = new Date(input);
+    return newDate.toLocaleDateString('de-DE', {
+      weekday: 'short',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
+  }
   return (
     <Container>
-      <Date>{date}</Date>
+      <DateContainer>{formatDate(date)}</DateContainer>
       <SpendingCardElement>
         {spendings.map((spending, index) => {
           return (
