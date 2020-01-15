@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 const Div = styled.div``;
 
-const Label = styled.h5`
+const Label = styled.h4`
   color: ${props => props.theme.colors.fontPrimary};
   margin: 40px 0px 0px 40px;
 `;

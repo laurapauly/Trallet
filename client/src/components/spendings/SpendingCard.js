@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light';
+import light from '../../themes/light';
 import SpendingItem from './SpendingItem';
 import PropTypes from 'prop-types';
 
@@ -36,7 +36,7 @@ const Container = styled.div`
 `;
 
 export default function SpendingCard({ spendings, date }) {
-  function DividerFunc({ index, length }) {
+  function DividerFunction({ index, length }) {
     if (index + 1 !== length) {
       return <DividerLine></DividerLine>;
     }
@@ -61,7 +61,7 @@ export default function SpendingCard({ spendings, date }) {
           return (
             <>
               <SpendingItem spending={spending} key={spending.id} />
-              <DividerFunc index={index} length={spendings.length} />
+              <DividerFunction index={index} length={spendings.length} />
             </>
           );
         })}

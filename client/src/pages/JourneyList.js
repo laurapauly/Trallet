@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import JourneyCard from '../components/JourneyCard';
+import JourneyCard from '../components/cards/JourneyCard';
 import PlusIcon from '../components/icons/PlusIcon';
-import AddNewJourney from '../components/Forms/AddNewJourney';
+import AddNewJourney from '../components/forms/AddNewJourney';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import Background from '../components/backgroundcomponents/Background';
-import PageHeading from '../components/backgroundcomponents/PageHeading';
-import PageSubheading from '../components/backgroundcomponents/PageSubheading';
+import Background from '../components/background/Background';
+import PageHeading from '../components/background/PageHeading';
+import PageSubheading from '../components/background/PageSubheading';
 
 const CardContainer = styled.div`
   width: 100%;
   background-color: ${props => props.theme.colors.backgroundPrimary};
-  padding-bottom: 6rem;
+  padding-bottom: 30rem;
   padding-top: 1rem;
 `;
 

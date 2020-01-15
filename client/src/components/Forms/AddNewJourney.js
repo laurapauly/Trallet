@@ -1,7 +1,7 @@
 import React from 'react';
 import CloseIcon from '../icons/CloseIcon';
 import SubmitButton from './SubmitButton';
-import InputField from '../InputField';
+import InputField from '../input/InputField';
 import { useState } from 'react';
 import FormItem from './FormItem';
 import FormContainer from './FormContainer';
