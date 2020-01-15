@@ -2,7 +2,21 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 export default function TralletLogo(props) {
-  const Svg = styled.svg``;
+  const Svg = styled.svg`
+    margin-top: 60px;
+    animation: fadeInDown 2s;
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  `;
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"

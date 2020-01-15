@@ -1,44 +1,67 @@
 import React from 'react';
 import TralletLogo from '../assets/TralletLogo';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const LandingContainer = styled.div`
   height: 100vh;
   display: flex;
   padding-top: 100px;
   flex-direction: column;
-  margin: 20px;
   align-items: center;
-`;
-const Title = styled.h3`
-  margin-top: 30px;
-  color: ${props => props.theme.colors.fontSecondary};
+
+  background: linear-gradient(180deg, #eff8f9 0%, #91d5e2 80%);
 `;
 
-const Button = styled(Link)`
-  text-decoration: none;
-  width: 100px;
-  height: 35px;
-  padding: 5px;
-  text-align: center;
-  margin: 10px;
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  background-color: ${props => props.theme.colors.action};
-  :hover {
-    background-color: ${props => props.theme.colors.background};
+const Heading = styled.h1`
+  margin-top: 25px;
+  color: ${props => props.theme.colors.fontSecondary};
+  animation: fadeInUp 6s;
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+`;
+
+const Title = styled.h3`
+  margin-top: 10px;
+  color: ${props => props.theme.colors.fontSecondary};
+  animation: fadeInUp 6s;
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 `;
 
 export default function Landing() {
+  const [redirect, setRedirect] = React.useState(false);
+
+  function toJourneyPage() {
+    setTimeout(() => setRedirect(true), 4000);
+  }
+
+  toJourneyPage();
+
   return (
     <LandingContainer>
+      {redirect ? <Redirect to="/journeys" /> : true}
       <TralletLogo />
+      <Heading>Trallet</Heading>
       <Title>Deine Reise-Budget-App</Title>
-      <Button to="/journeys">Los geht's!</Button>
     </LandingContainer>
   );
 }
