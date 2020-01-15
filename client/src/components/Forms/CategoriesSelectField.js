@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import categories from '../categories';
+import categories from '../categories/categories';
 import PropTypes from 'prop-types';
 
 const Select = styled.select`
@@ -20,6 +20,7 @@ const Select = styled.select`
 export default function CategoriesSelectField({ onChange }) {
   return (
     <Select onChange={onChange}>
+      <option value={''}>Alle</option>
       {categories.map(category => (
         <option key={category.value} value={category.value}>
           {category.title}
