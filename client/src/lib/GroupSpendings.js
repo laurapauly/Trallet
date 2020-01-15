@@ -12,6 +12,7 @@ export default function groupSpendings(spendings) {
   return result;
 }
 
+// Hinweis von Leon: Alternative Lösung, da reduce hier besser passen könnte
 // function groupSpendings(spendings) {
 //   const result = spendings.reduce((groups, spending) => {
 //     const group = groups[spending.date] || [];
