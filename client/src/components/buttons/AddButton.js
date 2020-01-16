@@ -34,7 +34,7 @@ export default function AddButton({ journeyId }) {
   const [showForm, setShowForm] = useState(false);
   function handleForm(event) {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
   }
   function closeForm() {
     setShowForm(false);
