@@ -4,7 +4,7 @@ import UmbrellaIcon from '../icons/UmbrellaIcon';
 import HomeIcon from '../icons/HomeIcon';
 import ChartIcon from '../icons/ChartIcon';
 import MapIcon from '../icons/MapIcon';
-import AddButton from '../buttons/PlusButton';
+import AddButton from '../buttons/AddButton';
 import PropTypes from 'prop-types';
 
 import { useLocation, Link } from 'react-router-dom';
