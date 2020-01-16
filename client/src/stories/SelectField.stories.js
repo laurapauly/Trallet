@@ -1,10 +1,10 @@
 import React from 'react';
-import SelectField from '../components/SelectField.js';
+import IconSelect from '../components/forms/IconSelect';
 
 export default {
   title: 'Select field'
 };
 
 export function Input() {
-  return <SelectField></SelectField>;
+  return <IconSelect></IconSelect>;
 }

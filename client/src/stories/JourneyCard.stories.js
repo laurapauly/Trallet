@@ -1,5 +1,5 @@
 import React from 'react';
-import JourneyCard from '../components/JourneyCard';
+import JourneyCard from '../components/cards/JourneyCard';
 
 export default {
   title: 'JourneyCard'

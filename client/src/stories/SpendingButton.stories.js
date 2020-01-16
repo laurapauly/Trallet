@@ -1,5 +1,5 @@
 import React from 'react';
-import SpendingButton from '../components/SpendingButton.js';
+import SpendingButton from '../components/forms/SpendingButton';
 
 export default {
   title: 'Spending Button'

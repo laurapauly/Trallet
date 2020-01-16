@@ -1,10 +1,10 @@
 import React from 'react';
-import InputFieldSmall from '../components/InputFieldSmall.js';
+import InputField from '../components/input/InputField.js';
 
 export default {
-  title: 'InputfieldSmall'
+  title: 'Inputfield'
 };
 
-export function InputSmall() {
-  return <InputFieldSmall></InputFieldSmall>;
+export function Input() {
+  return <InputField></InputField>;
 }

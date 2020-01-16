@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterForm from '../components/FilterForm.js';
+import FilterForm from '../components/forms/FilterForm';
 
 export default {
   title: 'Filter Form'
