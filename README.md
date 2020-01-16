@@ -14,13 +14,13 @@ By following the next steps you will get a copy of the project to run it on your
 
 After cloning this to your machine, you need to install node_modules on server and client side.
 
-First on the server side
+First on server side
 
 ```
 npm install
 ```
 
-and then on the client side
+and then on client side
 
 ```
 client
