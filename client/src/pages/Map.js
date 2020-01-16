@@ -1,7 +1,7 @@
 import React from 'react';
 import Background from '../components/background/Background';
 import styled from '@emotion/styled';
-import NavBarFooter from "../components/navigation/NavBarFooter";
+import NavBarFooter from '../components/navigation/NavBarFooter';
 
 const Container = styled.div`
   background-color: ${props => props.theme.colors.background};
@@ -26,7 +26,7 @@ export default function Map() {
       <Container>
         <Background>
           <Heading>
-            You will see the map of the journey here, but sorry, it's still{' '}
+            You will see the map of the journey here, but sorry, its still{' '}
             <strong>under construction!!</strong>
           </Heading>
         </Background>
