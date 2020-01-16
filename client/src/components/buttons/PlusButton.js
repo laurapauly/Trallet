@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light';
-import PlusIcon from './icons/PlusIcon';
+import light from '../../themes/light';
+import PlusIcon from '../icons/PlusIcon';
 import { useState } from 'react';
-import AddNewSpending from './Forms/AddNewSpending';
+import AddNewSpending from '../forms/AddNewSpending';
 import PropTypes from 'prop-types';
 
 const PlusButton = styled.button`
@@ -30,7 +30,7 @@ const ButtonBackground = styled.div`
   margin-bottom: 40px;
 `;
 
-export default function Add({ journeyId }) {
+export default function AddButton({ journeyId }) {
   const [showForm, setShowForm] = useState(false);
   function handleForm(event) {
     event.preventDefault();
@@ -60,7 +60,7 @@ export default function Add({ journeyId }) {
   );
 }
 
-Add.propTypes = {
+AddButton.propTypes = {
   journeyId: PropTypes.string,
   showForm: PropTypes.bool
 };

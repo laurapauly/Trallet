@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import light from '../themes/light';
-import categories from './categories';
+import light from '../../themes/light';
+import categories from '../categories/categories';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
@@ -40,20 +40,17 @@ const Container = styled.div`
 `;
 
 export default function SpendingItem({ spending }) {
-  //über Kategoriesliste filtern
   const CategoryIcon = () => {
     const filteredCategories = categories.filter(category => {
       return spending.category === category.value;
     });
-    //schauen ob das gefilterte auch wirklich nur 1 Element beinhaltet
     if (filteredCategories.length !== 1) {
       return null;
     }
     const icon = filteredCategories[0];
     return <icon.Icon size={25} />;
   };
-  //wenn nicht nur 1 Element, dann kein Icon
-  //ansonsten nehme ich das erste Element.
+
   return (
     <Container>
       <Wrapper2>

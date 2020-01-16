@@ -1,12 +1,12 @@
-import light from '../themes/light.js';
-import DrinkIcon from './icons/DrinksIcon';
-import FoodIcon from './icons/FoodIcon';
-import TransportIcon from './icons/TransportIcon';
-import ActionIcon from './icons/ActionIcon';
-import AirplaneIcon from './icons/AirplaneIcon';
-import HotelIcon from './icons/HotelIcon';
-import ShoppingIcon from './icons/ShoppingIcon';
-import SmileyIcon from './icons/SmileyIcon';
+import light from '../../themes/light.js';
+import DrinkIcon from '../icons/DrinksIcon';
+import FoodIcon from '../icons/FoodIcon';
+import TransportIcon from '../icons/TransportIcon';
+import ActionIcon from '../icons/ActionIcon';
+import AirplaneIcon from '../icons/AirplaneIcon';
+import HotelIcon from '../icons/HotelIcon';
+import ShoppingIcon from '../icons/ShoppingIcon';
+import SmileyIcon from '../icons/SmileyIcon';
 
 const categories = [
   {

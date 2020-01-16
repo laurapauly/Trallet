@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import NavBarFooter from '../components/NavBarFooter';
-import FormItem from '../components/Forms/FormItem';
+import NavBarFooter from '../components/navigation/NavBarFooter';
+import FormItem from '../components/forms/FormItem';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import Background from '../components/backgroundcomponents/Background';
-import PageHeading from '../components/backgroundcomponents/PageHeading';
-import PageDestination from '../components/backgroundcomponents/PageDestination';
+import Background from '../components/background/Background';
+import PageHeading from '../components/background/PageHeading';
+import PageDestination from '../components/background/PageDestination';
 import { sumOfSpendings } from '../lib/sumOfSpendings';
 import groupSpendings from '../lib/groupSpendings';
 import { calculateDifferenceInDays } from '../lib/calculateDifferenceInDays';

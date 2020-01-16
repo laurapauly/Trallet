@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import NavBarFooter from '../components/NavBarFooter';
+import NavBarFooter from '../components/navigation/NavBarFooter';
 import FilterIcon from '../components/icons/FilterIcon';
-import SpendingCard from '../components/SpendingCard';
-import FilterForm from '../components/Forms/FilterForm';
+import SpendingCard from '../components/spendings/SpendingCard';
+import FilterForm from '../components/forms/FilterForm';
 import { useState } from 'react';
 import groupSpendings from '../lib/groupSpendings';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import Background from '../components/backgroundcomponents/Background';
-import PageHeading from '../components/backgroundcomponents/PageHeading';
-import PageSubheading from '../components/backgroundcomponents/PageSubheading';
-import PageDestination from '../components/backgroundcomponents/PageDestination';
+import Background from '../components/background/Background';
+import PageHeading from '../components/background/PageHeading';
+import PageSubheading from '../components/background/PageSubheading';
+import PageDestination from '../components/background/PageDestination';
 import { sumOfSpendings } from '../lib/sumOfSpendings';
 import { getAvailableBudget } from '../lib/getAvailableBudget';
 
@@ -60,15 +60,11 @@ export default function SpendingList(props) {
   const [spendingItems, setSpendingItems] = useState([]);
   const [journey, setJourney] = useState({});
 
-  //Filterfunktion
-
   let filter = useLocation().search;
 
   function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
-
-  //Filterfunktion
 
   React.useEffect(() => {
     async function getSpendingItems() {

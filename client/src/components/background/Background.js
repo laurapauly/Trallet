@@ -24,5 +24,5 @@ export default function Background({ children }) {
 }
 
 Background.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.node
 };

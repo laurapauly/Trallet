@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBarFooter from './components/NavBarFooter';
 import GlobalStyles from './GlobalStyles';
 import light from './themes/light';
 import { ThemeProvider } from 'emotion-theming';
@@ -36,7 +35,6 @@ export default function App() {
             <Route exact path="/statistics/:journeyId" component={StatisticsList} />
             <Route exact path="/map">
               <Map />
-              <NavBarFooter />
             </Route>
           </Switch>
         </Container>

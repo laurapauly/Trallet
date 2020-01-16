@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import UmbrellaIcon from './icons/UmbrellaIcon';
-import HomeIcon from './icons/HomeIcon';
-import ChartIcon from './icons/ChartIcon';
-import MapIcon from './icons/MapIcon';
-import Add from './PlusButton';
+import UmbrellaIcon from '../icons/UmbrellaIcon';
+import HomeIcon from '../icons/HomeIcon';
+import ChartIcon from '../icons/ChartIcon';
+import MapIcon from '../icons/MapIcon';
+import AddButton from '../buttons/PlusButton';
 import PropTypes from 'prop-types';
 
 import { useLocation, Link } from 'react-router-dom';
@@ -60,7 +60,7 @@ export default function NavBarFooter({ journeyId }) {
   return (
     <Footer>
       <Wrapper>
-        <Highlight active={location.pathname === link(journeyId)} />
+        <Highlight active={location.pathname.indexOf(link(journeyId)) !== -1} />
         <NavButton to={link(journeyId)}>
           <HomeIcon to={link(journeyId)} active={location.pathname === link(journeyId)} />
         </NavButton>
@@ -74,7 +74,7 @@ export default function NavBarFooter({ journeyId }) {
           />
         </NavButton>
       </Wrapper>
-      <Add journeyId={journeyId} />
+      <AddButton journeyId={journeyId} />
 
       <Wrapper>
         <Highlight active={location.pathname === '/map'} />

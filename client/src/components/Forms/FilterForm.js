@@ -1,5 +1,5 @@
 import React from 'react';
-import InputField from '../InputField';
+import InputField from '../input/InputField';
 import CloseIcon from '../icons/CloseIcon';
 import CategoriesSelectField from './CategoriesSelectField';
 import SubmitButton from './SubmitButton';
