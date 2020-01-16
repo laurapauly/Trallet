@@ -1,5 +1,5 @@
 import React from 'react';
-import Submit from '../components/SubmitButton.js';
+import Submit from '../components/forms/SubmitButton.js';
 
 export default {
   title: 'Submitbutton'

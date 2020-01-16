@@ -1,10 +1,10 @@
 import React from 'react';
-import SpendingForm from '../components/SpendingForm.js';
+import AddNewSpending from '../components/forms/AddNewSpending.js';
 
 export default {
   title: 'Spending Form'
 };
 
 export function Spending() {
-  return <SpendingForm></SpendingForm>;
+  return <AddNewSpending></AddNewSpending>;
 }

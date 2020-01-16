@@ -1,5 +1,5 @@
 import React from 'react';
-import SpendingCard from '../components/SpendingCard.js';
+import SpendingCard from '../components/spendings/SpendingCard';
 
 export default {
   title: 'SpendingCard'

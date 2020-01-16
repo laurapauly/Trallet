@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBarFooter from '../components/NavBarFooter.js';
+import NavBarFooter from '../components/navigation/NavBarFooter';
 
 export default {
   title: 'NavBar'
