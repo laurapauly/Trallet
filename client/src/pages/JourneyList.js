@@ -12,7 +12,7 @@ import PageSubheading from '../components/background/PageSubheading';
 const CardContainer = styled.div`
   width: 100%;
   background-color: ${props => props.theme.colors.backgroundPrimary};
-  padding-bottom: 30rem;
+  padding-bottom: 5rem;
   padding-top: 1rem;
 `;
 
